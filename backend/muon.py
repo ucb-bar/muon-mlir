@@ -43,6 +43,7 @@ from merlin.common.paths import env as _env
 from merlin.runtime.backends.base import BackendInfo, BackendKind, TargetClass, register
 from merlin.runtime.metrics import COMMON_METRIC_NAMES
 from merlin.runtime.reference import outputs_match, reference_outputs
+from merlin.targetgen.program_values import OracleUnavailable
 
 # Self-register this reference GPU/SIMT backend with the class registry (base._REGISTRY). Discovery in
 # base._ensure_discovered imports this module to run the call, so the core carries no name -> module
@@ -77,7 +78,7 @@ class MuonError(RuntimeError):
     pass
 
 
-class MuonUnavailable(RuntimeError):
+class MuonUnavailable(OracleUnavailable):
     """The requested oracle exists but cannot complete (fail-closed; never a silent pass)."""
 
 
