@@ -27,6 +27,7 @@ from merlin.runtime.backends.base import BackendInfo, BackendKind, TargetClass, 
 # resolve. NB: importing ``muon`` does NOT eagerly pull in ``muon_codegen_mlir`` (whose lowering path needs
 # the MLIR->LLVM + RTL-derived transcode toolchain); REGISTRATION stays free of that dependency.
 from . import muon  # noqa: F401
+from .codegen_smoke import preflight_codegen_smoke  # noqa: F401
 from .muon import *  # noqa: F401,F403
 
 # Re-register under the PACKAGE name (muon.py already registered under its own submodule name when imported
