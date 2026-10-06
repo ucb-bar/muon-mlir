@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import subprocess
 from collections import Counter
@@ -16,6 +17,29 @@ from pathlib import Path
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def make_targets(directory: Path) -> dict:
+    """Read the evaluated default Makefile targets without building inputs."""
+    recipe = ("codex-inventory-print:\n\t@printf "
+              "'MU_SRCS=%s\\nMU_SRC_DEPS=%s\\nMU_VARIANTS=%s\\nRADIANCE_TARGETS=%s\\n' "
+              "'$(MU_SRCS)' '$(MU_SRC_DEPS)' '$(MU_VARIANTS)' '$(RADIANCE_TARGETS)'")
+    environment = os.environ.copy()
+    environment.pop("MAKEFLAGS", None)
+    result = subprocess.run(
+        ["make", "--no-print-directory", "-s", "--eval", recipe,
+         "codex-inventory-print"], cwd=directory, env=environment,
+        capture_output=True, text=True)
+    if result.returncode:
+        return {"error": result.stderr.strip()[:1000]}
+    values = dict(line.split("=", 1) for line in result.stdout.splitlines()
+                  if "=" in line)
+    names = {
+        "entry_sources": "MU_SRCS", "support_sources": "MU_SRC_DEPS",
+        "variants": "MU_VARIANTS", "radiance_elfs": "RADIANCE_TARGETS",
+    }
+    return {name: list(dict.fromkeys(values.get(variable, "").split()))
+            for name, variable in names.items()}
 
 
 def main() -> None:
@@ -60,6 +84,12 @@ def main() -> None:
                 if value["makefile"] is not None}
     counts = Counter()
     for family in families.values():
+        family["build_targets"] = make_targets(root / "kernels" / family["name"])
+        if "error" in family["build_targets"]:
+            counts["make_query_failures"] += 1
+        else:
+            counts["default_radiance_elfs"] += len(family["build_targets"]["radiance_elfs"])
+            counts["default_variant_targets"] += len(family["build_targets"]["variants"])
         counts["source_units"] += len(family["source_units"])
         for unit in family["source_units"]:
             counts[unit["role"]] += 1
@@ -69,8 +99,11 @@ def main() -> None:
                 counts["mx_referencing_units"] += 1
     revision = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root,
                               capture_output=True, text=True, check=True).stdout.strip()
-    doc = {"schema": "muon_mlir_kernel_inventory.v1",
+    status = subprocess.run(["git", "status", "--porcelain"], cwd=root,
+                            capture_output=True, text=True, check=True).stdout
+    doc = {"schema": "muon_mlir_kernel_inventory.v2",
            "source_root": str(root), "source_git_revision": revision,
+           "source_git_clean": not bool(status.strip()),
            "family_count": len(families), "counts": dict(counts),
            "families": list(families.values())}
     args.out.parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,4082 @@
+{
+  "schema": "muon_mlir_kernel_inventory.v2",
+  "source_root": "/scratch/agustin/projects/chipyard/radiance-kernels-firesim",
+  "source_git_revision": "a27f6abd24830fdc7999d872d170ab778f1e662e",
+  "source_git_clean": true,
+  "family_count": 64,
+  "counts": {
+    "default_radiance_elfs": 136,
+    "default_variant_targets": 20,
+    "source_units": 195,
+    "device_or_support": 147,
+    "direct_device_entry_candidates": 109,
+    "host": 48,
+    "mx_referencing_units": 70
+  },
+  "families": [
+    {
+      "name": "address_space",
+      "makefile": {
+        "path": "kernels/address_space/Makefile",
+        "sha256": "3ca4b8d823c03b1c0d807dfacfa011ac759f913d0a99d1cae91131cecdc47ff7"
+      },
+      "source_units": [],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": []
+      }
+    },
+    {
+      "name": "bad_apple",
+      "makefile": {
+        "path": "kernels/bad_apple/Makefile",
+        "sha256": "66006ff84cb7e48f24266b767aa27184734a45877fb0dd045f40fea929300af0"
+      },
+      "source_units": [
+        {
+          "path": "kernels/bad_apple/kernel.cpp",
+          "sha256": "31612f8907aac689880261e7ca69a1a3cfc364fb1310bcb3a01c31a3b5e91ee3",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "bad_apple.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "bfs",
+      "makefile": {
+        "path": "kernels/bfs/Makefile",
+        "sha256": "9d711d783db830b8a73bd379f3f3afa8784eaa3f6491048ecde595000bf6de66"
+      },
+      "source_units": [
+        {
+          "path": "kernels/bfs/bfs1_l0.cpp",
+          "sha256": "3624e84dd050eb0a24131946faff95289f6f75dc5d5f8a34a10b4db02453badc",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/bfs/bfs1_l1.cpp",
+          "sha256": "4ab875c48c523eb57eb8c8e8bd211bece055e7f86b6477c42e33bf4bef3a212a",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/bfs/bfs1_l2.cpp",
+          "sha256": "c687469174fd0ae0d31fd9cced23861451261bac76dd12de46e412bc94954a16",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/bfs/bfs2_l0.cpp",
+          "sha256": "777dc81d7d10f7044e6de0218ddc86fe02d75069e6dad79dd7bb6af9d2ce49fa",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/bfs/bfs2_l1.cpp",
+          "sha256": "0b6aaaa50a4c671cfebd64cbab3bee3c0c5699039d8a707c4185b5dc6d2878c2",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/bfs/bfs2_l2.cpp",
+          "sha256": "719a4b4260ef9b5b4262ed7620b43499848914b705a0b6f23c50e0fdd914529c",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/bfs/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "bfs1_l0.cpp",
+          "bfs2_l0.cpp",
+          "bfs1_l1.cpp",
+          "bfs2_l1.cpp",
+          "bfs1_l2.cpp",
+          "bfs2_l2.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "bfs1_l0.radiance.elf",
+          "bfs2_l0.radiance.elf",
+          "bfs1_l1.radiance.elf",
+          "bfs2_l1.radiance.elf",
+          "bfs1_l2.radiance.elf",
+          "bfs2_l2.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "bias_add",
+      "makefile": {
+        "path": "kernels/bias_add/Makefile",
+        "sha256": "46d3dde612edcf1d7b9774016c18c4a405fc6c49930abeed604fc06fc9414afe"
+      },
+      "source_units": [
+        {
+          "path": "kernels/bias_add/host.cpp",
+          "sha256": "c7d41053e8ff2a3459288fd2147f9901900014d2c07a73583a11495321b97672",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/bias_add/kernel.cpp",
+          "sha256": "ce23d8aad62adffe13c58bb717ac834cc23aa3dde27e07b03152fd42760ed198",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "embed_scale",
+      "makefile": {
+        "path": "kernels/embed_scale/Makefile",
+        "sha256": "46d3dde612edcf1d7b9774016c18c4a405fc6c49930abeed604fc06fc9414afe"
+      },
+      "source_units": [
+        {
+          "path": "kernels/embed_scale/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/embed_scale/kernel.cpp",
+          "sha256": "f7f82930fac7c1f2566e72079d2d7371e1f719bae1ca97d0d344f32b641d7f5b",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "fa_mx_hostsf",
+      "makefile": {
+        "path": "kernels/fa_mx_hostsf/Makefile",
+        "sha256": "92b7b5b68fead581c4985fb154938ff6645b9a94c1129d2db6757e15098c3ca0"
+      },
+      "source_units": [
+        {
+          "path": "kernels/fa_mx_hostsf/flash_attention_mx.cpp",
+          "sha256": "a563cd0b2d260d8731da7aa54ee8bbde72b032d73e8ba4e0b9bd0793d8147f44",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/fa_mx_hostsf/host.cpp",
+          "sha256": "faa360660a042190351fd8f068886fb31f5921a8f572c556f09058c3be8c3046",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "flash_attention_mx.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "flash_attention_mx.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "fa_stable_fpga",
+      "makefile": {
+        "path": "kernels/fa_stable_fpga/Makefile",
+        "sha256": "0ff2732ebcefba402c0dbfa845ff0249a634fb15d96510db60a9d3a96842d2d5"
+      },
+      "source_units": [
+        {
+          "path": "kernels/fa_stable_fpga/host.cpp",
+          "sha256": "108b91954af4f141ee637c4be29396212745efc7eeb89936d9f396a50acecf0e",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/fa_stable_fpga/kernel.cpp",
+          "sha256": "3091fb9d7bdc1733d40e65d6ec5b7857e58efcb00eec629a46e3fe59c763d92c",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "flash_attention",
+      "makefile": {
+        "path": "kernels/flash_attention/Makefile",
+        "sha256": "60f64a77eeea5d91884199fc856780d3490fc5a4eefe84745b6bff9d7292951b"
+      },
+      "source_units": [
+        {
+          "path": "kernels/flash_attention/flash_attention.cpp",
+          "sha256": "7a2b25e3c958f56b78fff43519e049f47ce7198d9dddea86425d58f816412f4d",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/flash_attention/host.cpp",
+          "sha256": "d47a6a47d03550c67ff2791487c20178043a9870fb880077f3d696dadc20a44f",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "flash_attention.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "flash_attention.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "flash_attention_mx",
+      "makefile": {
+        "path": "kernels/flash_attention_mx/Makefile",
+        "sha256": "92b7b5b68fead581c4985fb154938ff6645b9a94c1129d2db6757e15098c3ca0"
+      },
+      "source_units": [
+        {
+          "path": "kernels/flash_attention_mx/flash_attention_mx.cpp",
+          "sha256": "4f032cd19b779ec50f8585b07ad26fe3bc7fdc684934b95e7246c587faa61c28",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/flash_attention_mx/host.cpp",
+          "sha256": "f265289a6811fc511f12058db2ad02eacc89ebfdf4118a5926f4b6fdfbf70557",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "flash_attention_mx.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "flash_attention_mx.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "flash_attention_mx_fp6",
+      "makefile": {
+        "path": "kernels/flash_attention_mx_fp6/Makefile",
+        "sha256": "fe5705eeb551b8fd5aed326c01a02f6403a25c77f8117fe51a9178e907173a11"
+      },
+      "source_units": [
+        {
+          "path": "kernels/flash_attention_mx_fp6/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/flash_attention_mx_fp6/kernel.cpp",
+          "sha256": "73fb53aa1fd0273a6fd60fc5e018feb094abd606ecebb4e6988f2407a5ba9487",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "flash_attention_mx_gemma",
+      "makefile": {
+        "path": "kernels/flash_attention_mx_gemma/Makefile",
+        "sha256": "62048179d4f0ace43946365f0d615581f98896dcde0de6759a5f519e33b19f86"
+      },
+      "source_units": [
+        {
+          "path": "kernels/flash_attention_mx_gemma/host.cpp",
+          "sha256": "c7d41053e8ff2a3459288fd2147f9901900014d2c07a73583a11495321b97672",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/flash_attention_mx_gemma/kernel.cpp",
+          "sha256": "db4ebf399163a53d59733eeba76c45f0e4013b9d614557604d8e51c02997822d",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "flash_attention_mx_gqa",
+      "makefile": {
+        "path": "kernels/flash_attention_mx_gqa/Makefile",
+        "sha256": "62048179d4f0ace43946365f0d615581f98896dcde0de6759a5f519e33b19f86"
+      },
+      "source_units": [
+        {
+          "path": "kernels/flash_attention_mx_gqa/host.cpp",
+          "sha256": "c7d41053e8ff2a3459288fd2147f9901900014d2c07a73583a11495321b97672",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/flash_attention_mx_gqa/kernel.cpp",
+          "sha256": "fd6b7d62322a97b1ded81390400b76eb714a62149b665f2d7ad034401cbc1a0f",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "flash_attention_mx_stable",
+      "makefile": {
+        "path": "kernels/flash_attention_mx_stable/Makefile",
+        "sha256": "79643965b05b5083c52d4eef9bdcd97c5bf9d5d2808183b0a4a115a8e8754586"
+      },
+      "source_units": [
+        {
+          "path": "kernels/flash_attention_mx_stable/host.cpp",
+          "sha256": "f265289a6811fc511f12058db2ad02eacc89ebfdf4118a5926f4b6fdfbf70557",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/flash_attention_mx_stable/kernel.cpp",
+          "sha256": "be1c24f3325d3c0a624be61f62289fe837e4f8683b812b2f20d0bdd2535d1554",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "flash_attention_virgo",
+      "makefile": {
+        "path": "kernels/flash_attention_virgo/Makefile",
+        "sha256": "7b377a4fec6d775af8fa84b8a638e2cd26c39c131274470f731cca7758b46663"
+      },
+      "source_units": [
+        {
+          "path": "kernels/flash_attention_virgo/kernel.cpp",
+          "sha256": "edcab040caae9b4b7ae0d6b8ef5f8b7512554f31dde01daef18696f65f057c2d",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/flash_attention_virgo/kernel.gemmini.cpp",
+          "sha256": "af90811de8a50d335e0456778e011d1800ed967622035e5e718eb61190c8b0c1",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/flash_attention_virgo/kernel.gemmini.warpspec.cpp",
+          "sha256": "aaf0e5c2f1227c0b5a14e5fb9f333506b954727352dfe552a69c2578c9748437",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "flash_attention.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "fmastore",
+      "makefile": {
+        "path": "kernels/fmastore/Makefile",
+        "sha256": "56b4452ee6d04957980b8e88627b4d76f681d88217dd9f862662e8d95d3a0799"
+      },
+      "source_units": [
+        {
+          "path": "kernels/fmastore/host.cpp",
+          "sha256": "1d09f343a3ae5a5a88c1e85c4d86e94ede14ddc5ebb71b8cc22c1ec672b93ccb",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/fmastore/kernel.cpp",
+          "sha256": "3365a3aea0c54f001ae57d3fb126fe457c68d667c96c451e45dfe8ac8d8945f3",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [
+          "kernel_store_k1_w1",
+          "kernel_store_k1_w2",
+          "kernel_store_k1_w4",
+          "kernel_store_k1_w8",
+          "kernel_store_k2_w1",
+          "kernel_store_k2_w2",
+          "kernel_store_k2_w4",
+          "kernel_store_k2_w8",
+          "kernel_store_k4_w1",
+          "kernel_store_k4_w2",
+          "kernel_store_k4_w4",
+          "kernel_store_k4_w8",
+          "kernel_store_k8_w1",
+          "kernel_store_k8_w2",
+          "kernel_store_k8_w4",
+          "kernel_store_k8_w8",
+          "kernel_fmadd_k1_w1",
+          "kernel_fmadd_k2_w1",
+          "kernel_fmadd_k4_w1",
+          "kernel_fmadd_k8_w1"
+        ],
+        "radiance_elfs": [
+          "kernel.radiance.elf",
+          "kernel_store_k1_w1.radiance.elf",
+          "kernel_store_k1_w2.radiance.elf",
+          "kernel_store_k1_w4.radiance.elf",
+          "kernel_store_k1_w8.radiance.elf",
+          "kernel_store_k2_w1.radiance.elf",
+          "kernel_store_k2_w2.radiance.elf",
+          "kernel_store_k2_w4.radiance.elf",
+          "kernel_store_k2_w8.radiance.elf",
+          "kernel_store_k4_w1.radiance.elf",
+          "kernel_store_k4_w2.radiance.elf",
+          "kernel_store_k4_w4.radiance.elf",
+          "kernel_store_k4_w8.radiance.elf",
+          "kernel_store_k8_w1.radiance.elf",
+          "kernel_store_k8_w2.radiance.elf",
+          "kernel_store_k8_w4.radiance.elf",
+          "kernel_store_k8_w8.radiance.elf",
+          "kernel_fmadd_k1_w1.radiance.elf",
+          "kernel_fmadd_k2_w1.radiance.elf",
+          "kernel_fmadd_k4_w1.radiance.elf",
+          "kernel_fmadd_k8_w1.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gaussian",
+      "makefile": {
+        "path": "kernels/gaussian/Makefile",
+        "sha256": "4b558f709b5c91557becd7572b13734c71876b647ee370d263cc51e5ed99976c"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gaussian/fan1_t0.cpp",
+          "sha256": "152391a337b8e9b219f5f00c772a18fa2cd35ce5646a976172f52a8b09f6c2e3",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gaussian/fan1_t1.cpp",
+          "sha256": "6f0202aa7803eef467b9bfaa555fff0c804927e0fce66703be013deabe701d09",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gaussian/fan1_t2.cpp",
+          "sha256": "3a0fb86187224ce2d2e2c83c805f461d46c1df978063f306ca7ab9fba37e8950",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gaussian/fan1_t3.cpp",
+          "sha256": "0156a4ae2a921d708a3cc8811bfffe226eb14fb780e15610d8374a27ed216803",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gaussian/fan2_t0.cpp",
+          "sha256": "c2b3646df0c8663c4b3f53cd394321bc56cdad226a420edaa05d1ed6c36b6cb9",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gaussian/fan2_t1.cpp",
+          "sha256": "aa888f8915edfdbec024e7f4a79bb8f69b1514f19a6e91218acbdf29f7bec06f",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gaussian/fan2_t2.cpp",
+          "sha256": "e1bad6a4ec78372218de4147baf785e50bed97cc4a7dc05a6c983f5e9c899f9a",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gaussian/fan2_t3.cpp",
+          "sha256": "352ca21947ab80694f742337783e666528c11a0aff3a0b7c8573b810bfa1e722",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gaussian/host.cpp",
+          "sha256": "c125ece5c77f448ddac58659f7c6a49bb8241c659651026dd4cc3dee57f7786b",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "fan1_t0.cpp",
+          "fan2_t0.cpp",
+          "fan1_t1.cpp",
+          "fan2_t1.cpp",
+          "fan1_t2.cpp",
+          "fan2_t2.cpp",
+          "fan1_t3.cpp",
+          "fan2_t3.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "fan1_t0.radiance.elf",
+          "fan2_t0.radiance.elf",
+          "fan1_t1.radiance.elf",
+          "fan2_t1.radiance.elf",
+          "fan1_t2.radiance.elf",
+          "fan2_t2.radiance.elf",
+          "fan1_t3.radiance.elf",
+          "fan2_t3.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "geglu",
+      "makefile": {
+        "path": "kernels/geglu/Makefile",
+        "sha256": "fe5705eeb551b8fd5aed326c01a02f6403a25c77f8117fe51a9178e907173a11"
+      },
+      "source_units": [
+        {
+          "path": "kernels/geglu/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/geglu/kernel.cpp",
+          "sha256": "666a00f31a82634f63e4c63266ff5fc2eae30c247baeb8ce07a505e11bf86d6d",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemm_mxgemmini",
+      "makefile": {
+        "path": "kernels/gemm_mxgemmini/Makefile",
+        "sha256": "2b07848e4e1bc2768c47699f39c5156b92124e054158e176c41c1e3e721604ac"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemm_mxgemmini/host.cpp",
+          "sha256": "c7d41053e8ff2a3459288fd2147f9901900014d2c07a73583a11495321b97672",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.cpp",
+          "sha256": "eab6bd915b4dbaf9b280d3e698e18e7a73c8d450b09fd7f4471c32bd7de6cfb3",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.flash_contention.cpp",
+          "sha256": "c7d349989254ce2d3ac86116deb330efd76e7526918d24238c20e4ef5d39ab7f",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.m128n128k1024.tm128tn128tk512.fullout.cpp",
+          "sha256": "978f234c0cbc6fe812450350cd472d2e04352b67ea1fe900c3d0368f574f875d",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.m128n128k2048.tm128tn128tk128.fullout.cpp",
+          "sha256": "1433db877a87627d2ead9961de7663b4b07a9dd070aff964906a8290c033cf9a",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.m128n128k256.tm128tn128tk128.fullout.cpp",
+          "sha256": "33accc38f62228e978b6bf82342dbb0ff6f35812081fdab1371f640390042e9d",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.m128n128k5632.tm128tn128tk128.fullout.cpp",
+          "sha256": "f7502f543e317d4fcafef05c8167e2c024721a07f2f13aaee5dbb3dd5e8552b3",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.m64n64k128.tm64tn64tk64.fullout.cpp",
+          "sha256": "8781fddbff19c5a17a0e671e8cc4787526ddecbb5daf9528b1106872c30667d0",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.singletile.tm128tn128tk128.fullout.cpp",
+          "sha256": "2e501c4afa3404b927c03461e4940ea77b4f80cb08b34c186584381af27e22df",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.singletile.tm128tn128tk128.requant.cpp",
+          "sha256": "b40a27d9407779db66e287c8048305f2593808d25195e4a4cabfbfca4cd01427",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.singletile.tm128tn128tk512.fullout.cpp",
+          "sha256": "82bbfd476adaa5a79be36859aaa812f70549eadc4c24bb15c783e99338ff55b0",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.singletile.tm128tn128tk512.requant.cpp",
+          "sha256": "49908237ac02fd377729ea8921c54d276f95d0bd96e170c5cbf43b8405975d8e",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.singletile.tm64tn64tk64.fullout.cpp",
+          "sha256": "e37a53158bd6a4542e54eb703b1fd42d4b17e50f34ca3c66321ea66eeafc620f",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp4.singletile.tm64tn64tk64.requant.cpp",
+          "sha256": "54344ecd0e2ff010cb59edb3f16d83f3b93a5159c972e8c87c76d2d991536ef3",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp6.m128n128k1024.tm128tn128tk512.fullout.cpp",
+          "sha256": "50b5ffc6ed39fb87599a4d0f0dda652dc6dd8b00611728bf026bfb490ae8c1a9",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp6.m128n128k2048.tm128tn128tk128.fullout.cpp",
+          "sha256": "18bfc5d0af4687bd965f546508d945adcfbfee5d242e6269ec442889888e02ed",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp6.m128n128k256.tm128tn128tk128.fullout.cpp",
+          "sha256": "b2ebd8106cc04d62afe74eb13f339f1244821d6a5ab7578e34ccdf931816dc2c",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp6.singletile.tm128tn128tk128.fullout.cpp",
+          "sha256": "75b0101dff29076e8e72e4290c18a7df17929bb7ca935896b1a8722883866ee9",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp6.singletile.tm128tn128tk128.requant.cpp",
+          "sha256": "f46bd8339d4f61fc9b2621872198a99e302e3e1cb20ef27acb7adfc6abd873f2",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp6.singletile.tm128tn128tk512.fullout.cpp",
+          "sha256": "e9ffb31e8792ba282aa670f99288d5ac175513e728737a64d9f4d64d3025da25",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp6.singletile.tm128tn128tk512.requant.cpp",
+          "sha256": "99607d6b83639624f95dbe5dc5ac76aaa8ac1d6972222712c1151dae1632421e",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.m128n128k128.tm128tn128tk128.fullout.cpp",
+          "sha256": "64568f62f9686c7497d205dd9a434d5efd424dc339190f022af16c8caeaf31e4",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.m128n128k2048.tm128tn128tk128.fullout.cpp",
+          "sha256": "8944fcb602cf57110d8316c62eda18433bc5735be2c263516a3fe3dc4633ca1f",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.m128n128k256.tm128tn128tk128.fullout.cpp",
+          "sha256": "77fe23bc5f4ca5b7f67658c4c259f4ef7584608c2108da9a4ff12ec5d4339ae7",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.m128n128k512.tm128tn128tk128.fullout.cpp",
+          "sha256": "36d95d08e9118197e73cb776ffd0b0c21f99eb17678dfc539fc262195c7a1bea",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.m128n128k512.tm128tn128tk256.fullout.cpp",
+          "sha256": "ebf41fdce8dbe1e06164b6c381547e7edc1aa330c73f866cbedf3aacd1b21bcd",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.m128n128k5632.tm128tn128tk128.fullout.cpp",
+          "sha256": "a8515544889c64062fa67cc5ac58f51ad5469f38bdf08d294829f28445df1da0",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.m256n256k256.tm128tn128tk256.fullout.cpp",
+          "sha256": "05f12ce0aeeb5a49d7d0dc782a1aeda65ce48811e31760a8145494ecf858c22e",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.m64n64k128.tm64tn64tk64.fullout.cpp",
+          "sha256": "114367c4feedcff5194611e14b665775daea2366e2c5f372b128d0f55cd0f8e2",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.singletile.tm128tn128tk128.requant.cpp",
+          "sha256": "294d68402fc3eb1d5c2e47dfc09da218a7fc3845a237b70693ad8c4d4c49869c",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.singletile.tm128tn128tk256.fullout.cpp",
+          "sha256": "a7e771e3d83535a7e2b91cb4ea4899ddc3775dfa42ef3e89459dbdcd715b64a6",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.singletile.tm128tn128tk256.requant.cpp",
+          "sha256": "2abc4f5fda0c859f03cdb876f6d717aa95d800c5ddc27b1b699e53bcb6233404",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.singletile.tm64tn64tk64.fullout.cpp",
+          "sha256": "0213626ce8e37bdcb59dd7be7d1457b1267e233f8ef3bf81e3cdb93fc0b20453",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.fp8.singletile.tm64tn64tk64.requant.cpp",
+          "sha256": "23fe329e80e71694d77850933acb31d7a5e4ee4006875df5e31747f2c9c76c57",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm.simt_contention.cpp",
+          "sha256": "608905b6704cb7dca167ca7f71f2f0ec777c047d187b6455b189926d7bd20b57",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm_singlesmemtile.cpp",
+          "sha256": "ea0a50ad74d455bd9cac3d5ed010b7f06b7c2ffd4855c71397da4146998deeef",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm_singletile.cpp",
+          "sha256": "1ebd205dbc0ba8b46bb30c2bbe52ffb15b38fff2fb9f935e909554d8e4187798",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/mxgemm_smol.cpp",
+          "sha256": "97d8ee2364f7f65efb17cdf771b262ae27bc47a30e9a514a298822e12af53662",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini/requant.cpp",
+          "sha256": "618a9fd38a0d0784ac81acc5dfbd05a67356d1923cbbc8ec53cd597e8ac05239",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "mxgemm.cpp",
+          "mxgemm_singletile.cpp",
+          "mxgemm.fp8.singletile.tm128tn128tk128.requant.cpp",
+          "mxgemm.fp8.singletile.tm64tn64tk64.fullout.cpp",
+          "mxgemm.fp8.singletile.tm64tn64tk64.requant.cpp",
+          "mxgemm.fp8.m64n64k128.tm64tn64tk64.fullout.cpp",
+          "mxgemm.fp8.m128n128k512.tm128tn128tk128.fullout.cpp",
+          "mxgemm.fp8.m128n128k256.tm128tn128tk128.fullout.cpp",
+          "mxgemm.fp8.m128n128k128.tm128tn128tk128.fullout.cpp",
+          "mxgemm.fp4.singletile.tm64tn64tk64.fullout.cpp",
+          "mxgemm.fp4.m64n64k128.tm64tn64tk64.fullout.cpp",
+          "mxgemm.fp4.singletile.tm64tn64tk64.requant.cpp",
+          "mxgemm.fp4.singletile.tm128tn128tk128.fullout.cpp",
+          "mxgemm.fp4.m128n128k256.tm128tn128tk128.fullout.cpp",
+          "mxgemm.fp4.singletile.tm128tn128tk128.requant.cpp",
+          "mxgemm.fp8.m128n128k2048.tm128tn128tk128.fullout.cpp",
+          "mxgemm.fp8.m128n128k5632.tm128tn128tk128.fullout.cpp",
+          "mxgemm.fp6.m128n128k2048.tm128tn128tk128.fullout.cpp",
+          "mxgemm.fp4.m128n128k2048.tm128tn128tk128.fullout.cpp",
+          "mxgemm.fp4.m128n128k5632.tm128tn128tk128.fullout.cpp",
+          "mxgemm.simt_contention.cpp",
+          "requant.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "mxgemm.radiance.elf",
+          "mxgemm_singletile.radiance.elf",
+          "mxgemm.fp8.singletile.tm128tn128tk128.requant.radiance.elf",
+          "mxgemm.fp8.singletile.tm64tn64tk64.fullout.radiance.elf",
+          "mxgemm.fp8.singletile.tm64tn64tk64.requant.radiance.elf",
+          "mxgemm.fp8.m64n64k128.tm64tn64tk64.fullout.radiance.elf",
+          "mxgemm.fp8.m128n128k512.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.fp8.m128n128k256.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.fp8.m128n128k128.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.fp4.singletile.tm64tn64tk64.fullout.radiance.elf",
+          "mxgemm.fp4.m64n64k128.tm64tn64tk64.fullout.radiance.elf",
+          "mxgemm.fp4.singletile.tm64tn64tk64.requant.radiance.elf",
+          "mxgemm.fp4.singletile.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.fp4.m128n128k256.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.fp4.singletile.tm128tn128tk128.requant.radiance.elf",
+          "mxgemm.fp8.m128n128k2048.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.fp8.m128n128k5632.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.fp6.m128n128k2048.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.fp4.m128n128k2048.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.fp4.m128n128k5632.tm128tn128tk128.fullout.radiance.elf",
+          "mxgemm.simt_contention.radiance.elf",
+          "requant.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemm_mxgemmini_ws",
+      "makefile": {
+        "path": "kernels/gemm_mxgemmini_ws/Makefile",
+        "sha256": "a9c03c703ea2eccd961b412c6834d56f34f3f14a880e5fa30fcaeab74388102e"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemm_mxgemmini_ws/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini_ws/kernel.cpp",
+          "sha256": "d1cca6d8b12d875a5cffa73ade73976ebaaa9e4db1323b9d385f23dc8fb11384",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemm_mxgemmini_ws_downproj_fp4",
+      "makefile": {
+        "path": "kernels/gemm_mxgemmini_ws_downproj_fp4/Makefile",
+        "sha256": "a9c03c703ea2eccd961b412c6834d56f34f3f14a880e5fa30fcaeab74388102e"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemm_mxgemmini_ws_downproj_fp4/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini_ws_downproj_fp4/kernel.cpp",
+          "sha256": "4e38f4f040ade76bc0c1584fe3374d719152087b0c9d21fd56ed2c06585b0678",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemm_mxgemmini_ws_restream",
+      "makefile": {
+        "path": "kernels/gemm_mxgemmini_ws_restream/Makefile",
+        "sha256": "a9c03c703ea2eccd961b412c6834d56f34f3f14a880e5fa30fcaeab74388102e"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemm_mxgemmini_ws_restream/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_mxgemmini_ws_restream/kernel.cpp",
+          "sha256": "02a902eff587326a883c77313bf670d1a5fafdc72f4e3aac66f76717a4836a05",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemm_simt",
+      "makefile": {
+        "path": "kernels/gemm_simt/Makefile",
+        "sha256": "62a7bb25fa8cb0e85367abf1b9635ab3afe61c13f343fa18ae3bc7eb2e698d3e"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemm_simt/host.cpp",
+          "sha256": "fa82084e9c6806899d0e48195e1003bfae0c8abc6a3001c3efca5f9eed60e379",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_simt/kernel.cpp",
+          "sha256": "3365a3aea0c54f001ae57d3fb126fe457c68d667c96c451e45dfe8ac8d8945f3",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_simt/kernel_bounded.cpp",
+          "sha256": "c143bd3c5335938af38e9a0822c8d3f1be8d2b8f6e390dbd6a0526ec544b064c",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_simt/kernel_ilp1.cpp",
+          "sha256": "9d1ffb8fce026386221d86df2762e912da0605f5a212285f05d4ca7f22f5eeaa",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_simt/kernel_ilp1_fence.cpp",
+          "sha256": "5f1e160c2a66b77f55e1b3dfd73bbb2306e1992e8fbfa5e208fd8c97ec43cdd7",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_simt/kernel_strict.cpp",
+          "sha256": "d40fbaa90f9dc141946d27b6b886b0146860faf4d6ccc93f21e2495500452a14",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_simt/kernel_tn4.cpp",
+          "sha256": "07269b4a57a6131334f3ae74b4dd5f9a54218affedf4aa69ccf8df0674b62af6",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemm_simt/kernel_tn4_fence.cpp",
+          "sha256": "4806df3a11006d147489e56e0195b544d3c28a8b5c57a4b7e48f51218978351f",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp",
+          "kernel_bounded.cpp",
+          "kernel_strict.cpp",
+          "kernel_ilp1.cpp",
+          "kernel_ilp1_fence.cpp",
+          "kernel_tn4.cpp",
+          "kernel_tn4_fence.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf",
+          "kernel_bounded.radiance.elf",
+          "kernel_strict.radiance.elf",
+          "kernel_ilp1.radiance.elf",
+          "kernel_ilp1_fence.radiance.elf",
+          "kernel_tn4.radiance.elf",
+          "kernel_tn4_fence.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemma_4norm",
+      "makefile": {
+        "path": "kernels/gemma_4norm/Makefile",
+        "sha256": "46d3dde612edcf1d7b9774016c18c4a405fc6c49930abeed604fc06fc9414afe"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemma_4norm/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemma_4norm/kernel.cpp",
+          "sha256": "2a61b59c40f79a4f65fe2d3dbaf8555f75f5e15834cf0a5e11bbbe973e655aa3",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemv",
+      "makefile": {
+        "path": "kernels/gemv/Makefile",
+        "sha256": "ae6319adeb3ef8f176be83945d6883003ca24aab385961d77dff37a0eac4841c"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemv/host.cpp",
+          "sha256": "c13c3ef44e658e92bb06d5bbb2ec9e154e03907f771c77404ad20a912d37969a",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemv/kernel.cpp",
+          "sha256": "3365a3aea0c54f001ae57d3fb126fe457c68d667c96c451e45dfe8ac8d8945f3",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemv_batched_fp4_m128",
+      "makefile": {
+        "path": "kernels/gemv_batched_fp4_m128/Makefile",
+        "sha256": "fe5705eeb551b8fd5aed326c01a02f6403a25c77f8117fe51a9178e907173a11"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemv_batched_fp4_m128/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemv_batched_fp4_m128/kernel.cpp",
+          "sha256": "a96cc0ce5e77570b80d6b309b5b0a1928ee4462375254b2b8da853cc551e6049",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemv_batched_fp8_m128",
+      "makefile": {
+        "path": "kernels/gemv_batched_fp8_m128/Makefile",
+        "sha256": "fe5705eeb551b8fd5aed326c01a02f6403a25c77f8117fe51a9178e907173a11"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemv_batched_fp8_m128/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemv_batched_fp8_m128/kernel.cpp",
+          "sha256": "6ea00c259362570a03a36c83a897e3c08c02f468371c10264befaac6340ad51c",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemv_batched_fp8_m32",
+      "makefile": {
+        "path": "kernels/gemv_batched_fp8_m32/Makefile",
+        "sha256": "fe5705eeb551b8fd5aed326c01a02f6403a25c77f8117fe51a9178e907173a11"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemv_batched_fp8_m32/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemv_batched_fp8_m32/kernel.cpp",
+          "sha256": "393ad997812814bfffdc4f8981a1c53dfa6378c790b644bd279f1fd34ec65361",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "gemv_batched_fp8_m64",
+      "makefile": {
+        "path": "kernels/gemv_batched_fp8_m64/Makefile",
+        "sha256": "fe5705eeb551b8fd5aed326c01a02f6403a25c77f8117fe51a9178e907173a11"
+      },
+      "source_units": [
+        {
+          "path": "kernels/gemv_batched_fp8_m64/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/gemv_batched_fp8_m64/kernel.cpp",
+          "sha256": "b7cc19524f6a45fbe5c9100fcdf5aace85a25d08c3edec2fd6dd41841e8db56c",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "idle",
+      "makefile": {
+        "path": "kernels/idle/Makefile",
+        "sha256": "ea484cc414c6a3630d9209e4f82fce1ea1290b2c2419ad9714e4f84a4bd7aac0"
+      },
+      "source_units": [
+        {
+          "path": "kernels/idle/hello.c",
+          "sha256": "215a0f44e9565f1ca98af49f9e516f6d0ebc25420ee1fada2164a37baa16bfc5",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".c",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/idle/kernel.cpp",
+          "sha256": "2367444cfc92ef34a034a2bf349df1702987143b4242ba24ed72318586e9d912",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "idle.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "launch",
+      "makefile": {
+        "path": "kernels/launch/Makefile",
+        "sha256": "39ea14b66d2f117e44328ebad5ab39345aa76af5cbced4d522d2eeb4335f3a1b"
+      },
+      "source_units": [
+        {
+          "path": "kernels/launch/host.cpp",
+          "sha256": "b642d8acae38c56e30ada588bd80bcea8d37325c9b8be6d4a0955f726cd0a853",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/launch/kernel.cpp",
+          "sha256": "de37af6895ef32612a22244488967902da1a59cf35b742ca0db67c226076def2",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "layernorm",
+      "makefile": {
+        "path": "kernels/layernorm/Makefile",
+        "sha256": "46d3dde612edcf1d7b9774016c18c4a405fc6c49930abeed604fc06fc9414afe"
+      },
+      "source_units": [
+        {
+          "path": "kernels/layernorm/host.cpp",
+          "sha256": "c7d41053e8ff2a3459288fd2147f9901900014d2c07a73583a11495321b97672",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/layernorm/kernel.cpp",
+          "sha256": "a9a989b1e2e1d2b96534fd0b25bf5ca472f23e77f5f45e426c0d4692d7875a3a",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "logit_softcap",
+      "makefile": {
+        "path": "kernels/logit_softcap/Makefile",
+        "sha256": "8e196ecf75796e55317f85d9e41e82e74098fed7915caf23df3f7b1a4ba0776a"
+      },
+      "source_units": [
+        {
+          "path": "kernels/logit_softcap/host.cpp",
+          "sha256": "c7d41053e8ff2a3459288fd2147f9901900014d2c07a73583a11495321b97672",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/logit_softcap/kernel.cpp",
+          "sha256": "2fddfed3c6fdebfe56c411d20a50277345247c0f48d4a8f8d60d8545282a8fc9",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "nearn",
+      "makefile": {
+        "path": "kernels/nearn/Makefile",
+        "sha256": "f656749af8515e28d1f30c2ac66cf8a231a67c063dffee7bca2858f0da9cd3d6"
+      },
+      "source_units": [
+        {
+          "path": "kernels/nearn/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/nearn/kernel.cpp",
+          "sha256": "3365a3aea0c54f001ae57d3fb126fe457c68d667c96c451e45dfe8ac8d8945f3",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "patch_embed",
+      "makefile": {
+        "path": "kernels/patch_embed/Makefile",
+        "sha256": "46d3dde612edcf1d7b9774016c18c4a405fc6c49930abeed604fc06fc9414afe"
+      },
+      "source_units": [
+        {
+          "path": "kernels/patch_embed/host.cpp",
+          "sha256": "c7d41053e8ff2a3459288fd2147f9901900014d2c07a73583a11495321b97672",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/patch_embed/kernel.cpp",
+          "sha256": "9a61c9f3adccaba86017674899b5c0b2a562370b89e223d12c59af2173991685",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "pointerchase",
+      "makefile": {
+        "path": "kernels/pointerchase/Makefile",
+        "sha256": "48653baccca9e2e4eaf1e3892e3154060a09cc3e38e2a537f84c4891e37cb782"
+      },
+      "source_units": [
+        {
+          "path": "kernels/pointerchase/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/pointerchase/kernel.cpp",
+          "sha256": "3365a3aea0c54f001ae57d3fb126fe457c68d667c96c451e45dfe8ac8d8945f3",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "qkv_bias",
+      "makefile": {
+        "path": "kernels/qkv_bias/Makefile",
+        "sha256": "46d3dde612edcf1d7b9774016c18c4a405fc6c49930abeed604fc06fc9414afe"
+      },
+      "source_units": [
+        {
+          "path": "kernels/qkv_bias/host.cpp",
+          "sha256": "c7d41053e8ff2a3459288fd2147f9901900014d2c07a73583a11495321b97672",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/qkv_bias/kernel.cpp",
+          "sha256": "e43650d86183e3c9c4e4bcb5dcb7ad12f60e89547faa8b6f79b74faf0db4d9fe",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "reg_stack_test",
+      "makefile": {
+        "path": "kernels/reg_stack_test/Makefile",
+        "sha256": "86b081eee2c691b17b4fb9ef0b25cef55bebb693cbe2d4e2f20a66d327cfab6a"
+      },
+      "source_units": [
+        {
+          "path": "kernels/reg_stack_test/kernel.cpp",
+          "sha256": "c2e06d39fe9f968bd80e04d102393585cb614a7e05fb2df34a580a8794406e61",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "rickroll",
+      "makefile": {
+        "path": "kernels/rickroll/Makefile",
+        "sha256": "eb02a1db7154ce76b49ff71e527b2287427c6e25bab982fc4e2d281c827c29f9"
+      },
+      "source_units": [
+        {
+          "path": "kernels/rickroll/kernel.cpp",
+          "sha256": "a237cc2a2b2109643c7712709424b48e81e2e8f488e3db67d151bf8e0a3a3091",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "rickroll.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "rmsnorm",
+      "makefile": {
+        "path": "kernels/rmsnorm/Makefile",
+        "sha256": "8ba62fa44fb91af0ad67231a9fd977f263c3de5ed9850da0bc4aa6d85d006b71"
+      },
+      "source_units": [
+        {
+          "path": "kernels/rmsnorm/host.cpp",
+          "sha256": "0b9996a0f920c1518a7870c0ba6351a17d2772db57e3746ad5aaf6b0dbd6c717",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/rmsnorm/rmsnorm.cpp",
+          "sha256": "ec1405a1631298f47e023cfd8429e6777f7cad0d867d149b3d8121733119d1e1",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "rmsnorm.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "rmsnorm.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "rmsnorm_gemma",
+      "makefile": {
+        "path": "kernels/rmsnorm_gemma/Makefile",
+        "sha256": "46d3dde612edcf1d7b9774016c18c4a405fc6c49930abeed604fc06fc9414afe"
+      },
+      "source_units": [
+        {
+          "path": "kernels/rmsnorm_gemma/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/rmsnorm_gemma/kernel.cpp",
+          "sha256": "895ed6f5ca22c5a4e30497f1efc3446844ae3debd1e9fca671e0e6968401c91e",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "rmsnorm_qkv_fused",
+      "makefile": {
+        "path": "kernels/rmsnorm_qkv_fused/Makefile",
+        "sha256": "268ad5671bb9f515e06558b2d544b3052c3d55a39227de2579a3a351e5b5d835"
+      },
+      "source_units": [
+        {
+          "path": "kernels/rmsnorm_qkv_fused/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/rmsnorm_qkv_fused/kernel.cpp",
+          "sha256": "0ff8c2e6b338e999247e8f4c033fa1fe5b1823ffc8900d4504f3ee52526b6578",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "rope_qkv_fused",
+      "makefile": {
+        "path": "kernels/rope_qkv_fused/Makefile",
+        "sha256": "268ad5671bb9f515e06558b2d544b3052c3d55a39227de2579a3a351e5b5d835"
+      },
+      "source_units": [
+        {
+          "path": "kernels/rope_qkv_fused/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/rope_qkv_fused/kernel.cpp",
+          "sha256": "08f5dcd961c940c2c3b6b694911eb4b7967725b1e13f8926cdeb5514f0fd2329",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "saxpy",
+      "makefile": {
+        "path": "kernels/saxpy/Makefile",
+        "sha256": "768c054267a0080f15c2ad91226ad3f9ca466880594542c3319a735fae37d734"
+      },
+      "source_units": [
+        {
+          "path": "kernels/saxpy/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/saxpy/kernel.cpp",
+          "sha256": "3365a3aea0c54f001ae57d3fb126fe457c68d667c96c451e45dfe8ac8d8945f3",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "sfilter",
+      "makefile": {
+        "path": "kernels/sfilter/Makefile",
+        "sha256": "d9d55ea97a90fcfeeca84501cea7af6855d5bec651d9d94e7779350bfb1c517d"
+      },
+      "source_units": [
+        {
+          "path": "kernels/sfilter/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/sfilter/kernel.cpp",
+          "sha256": "3365a3aea0c54f001ae57d3fb126fe457c68d667c96c451e45dfe8ac8d8945f3",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "sgemm_gemmini",
+      "makefile": {
+        "path": "kernels/sgemm_gemmini/Makefile",
+        "sha256": "7e2335f72f86139abf2df61e9ace9b1cbff4b6da7f5f9a2f595ddc3cb987caf8"
+      },
+      "source_units": [
+        {
+          "path": "kernels/sgemm_gemmini/kernel.cpp",
+          "sha256": "36cd15de98b0f456e7a3a44c2d72019f325f16e34b7a31b6c2f9d1fc9847dc53",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "sgemm_gemmini.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "sgemm_gemmini_dma",
+      "makefile": {
+        "path": "kernels/sgemm_gemmini_dma/Makefile",
+        "sha256": "939f68bd0907f7ca93ce06e6f393c9c9a79cba777a46714f6824f3a889c0e355"
+      },
+      "source_units": [
+        {
+          "path": "kernels/sgemm_gemmini_dma/kernel.activation.cpp",
+          "sha256": "62c6274a6e315c631f1ed547ed065078f6fb011f1efcfa1440a78a1ddc4bdc9e",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/sgemm_gemmini_dma/kernel.cpp",
+          "sha256": "ceeb6061069df891b98b8e0c63c08884ec61f6206aba3e5fd6afc2920510ac99",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "sgemm_gemmini_dma.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "sgemm_gemmini_duo",
+      "makefile": {
+        "path": "kernels/sgemm_gemmini_duo/Makefile",
+        "sha256": "5acd392a082fa618cc955fa30ed51deca438f8e7163bc5bf8e38f914f2598e8d"
+      },
+      "source_units": [
+        {
+          "path": "kernels/sgemm_gemmini_duo/kernel.cpp",
+          "sha256": "4314f7a73dd97156ed6db92ac056318382a09694ae64e35f6bb6d0af89c52913",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/sgemm_gemmini_duo/kernel.serialized.cpp",
+          "sha256": "4314f7a73dd97156ed6db92ac056318382a09694ae64e35f6bb6d0af89c52913",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "sgemm_gemmini_duo.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "sgemm_muon",
+      "makefile": {
+        "path": "kernels/sgemm_muon/Makefile",
+        "sha256": "f77dde85e539bbad23d16d9e7784fa2020050c0742a2a4b96b4c9e5a7de17b5c"
+      },
+      "source_units": [
+        {
+          "path": "kernels/sgemm_muon/gemm.c",
+          "sha256": "539fecffb04e216ae222959b3cca65dd40f6ec7abb0fe4a358309b601c607055",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".c",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/sgemm_muon/simple.c",
+          "sha256": "f8db195b0b22d9da7eb2e9743355f2b3bbadbb4d7e737888e4ffe64d88a6ba0b",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".c",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/sgemm_muon/vecadd.c",
+          "sha256": "a097a42b28651ddb0203861a9754cf36b3815b2e1483a7593bb3fbf65da86cce",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".c",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "sgemm_muon.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "sgemm_tcore",
+      "makefile": {
+        "path": "kernels/sgemm_tcore/Makefile",
+        "sha256": "d3bfb773a3afbf2bc4cee8339317df13e37d852b06cf027c75a69a8a4f773bef"
+      },
+      "source_units": [
+        {
+          "path": "kernels/sgemm_tcore/kernel.4warps.cpp",
+          "sha256": "acdb53d13913eccf0a9365c23d5ced14c068e545d7a8a82b7becb5c697a9fe3c",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/sgemm_tcore/kernel.activation.cpp",
+          "sha256": "200b1010dff6ce4d03b572f3973e63c02267530063a28c0c721d0742ad36a74b",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/sgemm_tcore/kernel.cpp",
+          "sha256": "8029fb3af47dfa0120ff23a43e6be06afdb7f4b3e32ead5b60e5b54ccf49b24b",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/sgemm_tcore/kernel.warpspecial.cpp",
+          "sha256": "1d293a8d6b5dfb6e56c42869421833e22a63840f797656dfda2188fda7a69bb1",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/sgemm_tcore/kernel.warpspecial_dma.cpp",
+          "sha256": "768cab1791f0aa3b4debf7e3a4a3adcd4b68e11b8c2bea2b48934245ae9d91e4",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": true,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "sgemm_tcore.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "sgemm_wg",
+      "makefile": {
+        "path": "kernels/sgemm_wg/Makefile",
+        "sha256": "32c7b2993488d4ed2ca455654a38a7dd97fa9412fb04668ff21e8e7ee990252c"
+      },
+      "source_units": [
+        {
+          "path": "kernels/sgemm_wg/kernel.cpp",
+          "sha256": "5d46d727b2f68b5001d6eef9323bed0a3b3072e8d466befbdec5ced4afb20baa",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "sgemm_wg.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "simt_quant",
+      "makefile": {
+        "path": "kernels/simt_quant/Makefile",
+        "sha256": "f0ed852f429ae3ab0f46e56d01d0db66394f22e356efb7c8323e65b8a027a1ea"
+      },
+      "source_units": [
+        {
+          "path": "kernels/simt_quant/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/simt_quant/kernel.cpp",
+          "sha256": "5acec0a718a0a62f5b2840d3d137ccb6c5b8e4329fb2abe64f7c331688b1ff1d",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "softmax",
+      "makefile": {
+        "path": "kernels/softmax/Makefile",
+        "sha256": "453885943b1dc17170580873624685cefe0cb59e197c0b8f44c5f5039d7e3157"
+      },
+      "source_units": [
+        {
+          "path": "kernels/softmax/host.cpp",
+          "sha256": "5e12e17c66d00052ef626a5555d9cdd19afa24d0ca1836e72d8fe57167823ebd",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/softmax/kernel.cpp",
+          "sha256": "3365a3aea0c54f001ae57d3fb126fe457c68d667c96c451e45dfe8ac8d8945f3",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "spatter",
+      "makefile": {
+        "path": "kernels/spatter/Makefile",
+        "sha256": "492be4d5352549f155e101ab5207dbc3dea515159e4838cf6f500e89980e8c73"
+      },
+      "source_units": [
+        {
+          "path": "kernels/spatter/data.S",
+          "sha256": "7306aa8932926b8177b9c5584636c2502458d89b8d36eb362ee99d297f04eddb",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".S",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/spatter/host.cpp",
+          "sha256": "51c812fb1f57dec5e1fd61168d465ac826979946760eaa24946608b092421ec6",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/spatter/kernel.cpp",
+          "sha256": "ef83193c7c748f16dc3fec295253b751980e8a95288bfec060ec4105a68e0bc9",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": true,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/spatter/tools/upstream-golden.cc",
+          "sha256": "bd35d7dd7a2b1e75f4ef83b93ff77e9e48067688b4a0b185b2f566637c368895",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cc",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "special_fn",
+      "makefile": {
+        "path": "kernels/special_fn/Makefile",
+        "sha256": "48fc8b7f2de107b2949a0232dfdb6de9a25fac62184777f276bf9c63f7684c23"
+      },
+      "source_units": [
+        {
+          "path": "kernels/special_fn/special_fn.cpp",
+          "sha256": "524b23ebb94104c780e2a76f85de4fb152a55b73a5ab6d2264031761705deb4a",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "special_fn.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "special_fn.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "spin",
+      "makefile": {
+        "path": "kernels/spin/Makefile",
+        "sha256": "49f1dd9e16868f962225892614361f6015d8da21205c86c21681c4ec022a847f"
+      },
+      "source_units": [
+        {
+          "path": "kernels/spin/kernel.cpp",
+          "sha256": "6866a3ef39d2f5766888844757a5ad298dda9a35b55502cbecc56f89e53897f6",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "stream",
+      "makefile": {
+        "path": "kernels/stream/Makefile",
+        "sha256": "a84bed7547fc8c5f7405c4e11d07ba891513431847810c7e1a08cb5bad4ff2ad"
+      },
+      "source_units": [
+        {
+          "path": "kernels/stream/data.S",
+          "sha256": "384894fca80edf30999246eb99260dc414eba05565693b2e1682cc470df98991",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".S",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/stream/host.cpp",
+          "sha256": "b1203889e22795f0106bebb410570d832250bb25ca2728d9c382eea1de87959f",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/stream/kernel.cpp",
+          "sha256": "e00b1e93cfeb8e8df39c394c7eb7498d2886c72de7ad4ff7d47295ceb6ff2900",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "swiglu",
+      "makefile": {
+        "path": "kernels/swiglu/Makefile",
+        "sha256": "c14f14eec5c1b519f4672aba3f08866f244fabde84ab04e8f80c36ad430f8a22"
+      },
+      "source_units": [
+        {
+          "path": "kernels/swiglu/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/swiglu/kernel.cpp",
+          "sha256": "0fd2f6d5c8db30ab5e0523e772f30e02ebd2e006440e91642d848b020817c25f",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "tapeout_template",
+      "makefile": {
+        "path": "kernels/tapeout_template/Makefile",
+        "sha256": "f4d8e1eb4d1c66693c9e8eaf945ecfa626926cdacfbdcfa38a5bf590c25eb9e9"
+      },
+      "source_units": [
+        {
+          "path": "kernels/tapeout_template/host.cpp",
+          "sha256": "e002373b7aa849be58b5b77a8111c3eaf0c597990c5fc131e791b6973a14aa23",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/tapeout_template/kernel.cpp",
+          "sha256": "7f5767d7a8220686e0772338f691ab9bec50fce43d3833e54e6a4b8062218357",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": true,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "test_backing_L2_fill",
+      "makefile": {
+        "path": "kernels/test_backing_L2_fill/Makefile",
+        "sha256": "9a28847c6d96341e52fe9d94d0c75437187f477cae1bc647bd9e21736c07ff52"
+      },
+      "source_units": [
+        {
+          "path": "kernels/test_backing_L2_fill/host.cpp",
+          "sha256": "100fbeeaef78323c2738d244a16bd1b5aece73d6b9aac15361d0268134380541",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/test_backing_L2_fill/kernel.cpp",
+          "sha256": "b34cd9121bc5617e756e8ec9c1623e0cdd019c83c80fb4132415bdf52e13febf",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "test_backing_mem",
+      "makefile": {
+        "path": "kernels/test_backing_mem/Makefile",
+        "sha256": "b4deae6e670bb5ebb60fc12e982db7726764cdf56828352c3842fbbbfae67500"
+      },
+      "source_units": [
+        {
+          "path": "kernels/test_backing_mem/host.cpp",
+          "sha256": "83b186638f29924f2abb55444dfe55aeb73f41b0393815186048267094569814",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/test_backing_mem/kernel.cpp",
+          "sha256": "977b97560141c164facc225cbf91e8206760ff8bf53fa6ae078dcc628dfa4762",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "ubench",
+      "makefile": {
+        "path": "kernels/ubench/Makefile",
+        "sha256": "8924be6b657d74862d4ecd4d5c9a671508c2856798437602d89840c0ec4da422"
+      },
+      "source_units": [
+        {
+          "path": "kernels/ubench/bandwidth_gmem_lw_l0hit.cpp",
+          "sha256": "5dbbb377569d4fcfdb89356ed92952f4f3cbdebd2a56256b5d584034306a6f31",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/ubench/bandwidth_gmem_sw_l0hit.cpp",
+          "sha256": "d96fe6a9fbe5b58ced86c14bb9b6571cc2798c8aa2f06e89fa710691579e585b",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/ubench/bandwidth_smem_lw.cpp",
+          "sha256": "053f7e51dfadcc0f054b844e7724204cbee995d09549547294a05182e6b87454",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/ubench/bandwidth_smem_sw.cpp",
+          "sha256": "634248d65d6893b09bcecb8c6d69b6d60efa6041cd85eadbd549316f630fc4b1",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/ubench/flops_exp_fp16.cpp",
+          "sha256": "d50e9b4391707f38655e40138f4739609fe3b207475bb8bfed76e041a67684f4",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/ubench/flops_fp16.cpp",
+          "sha256": "9870cdadf73cdd6f72caee87f6c950ba4dad864622c83ecd26da2dd7f4e30cd5",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/ubench/flops_fp32.cpp",
+          "sha256": "18e46d2b28042db8a38bb16bef838e188d099873c82883ee06714e000a6f8996",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/ubench/flops_int.cpp",
+          "sha256": "23c09be63f75a0966d8a0961a56152c65ad43b5fa582ef5bdce142aa465cede6",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/ubench/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "flops_fp16.cpp",
+          "flops_fp32.cpp",
+          "flops_int.cpp",
+          "flops_exp_fp16.cpp",
+          "bandwidth_gmem_lw_l0hit.cpp",
+          "bandwidth_gmem_sw_l0hit.cpp",
+          "bandwidth_smem_lw.cpp",
+          "bandwidth_smem_sw.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "flops_fp16.radiance.elf",
+          "flops_fp32.radiance.elf",
+          "flops_int.radiance.elf",
+          "flops_exp_fp16.radiance.elf",
+          "bandwidth_gmem_lw_l0hit.radiance.elf",
+          "bandwidth_gmem_sw_l0hit.radiance.elf",
+          "bandwidth_smem_lw.radiance.elf",
+          "bandwidth_smem_sw.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "unaligned",
+      "makefile": {
+        "path": "kernels/unaligned/Makefile",
+        "sha256": "1a8863f61611275f355a8c2e799485b89c804b475dade60bfd3621299a21d150"
+      },
+      "source_units": [
+        {
+          "path": "kernels/unaligned/kernel.cpp",
+          "sha256": "3cd4afbe2ee552be83c245d5e3fdaaa0d91092221de321583794a6bda17a23d1",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/unaligned/kernel.minimal.cpp",
+          "sha256": "b30ee1c3c3530f3889ce7f54aef9c81d2ff5a3255941756305131d31d91b4c2e",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": true
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "unaligned.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "vecadd",
+      "makefile": {
+        "path": "kernels/vecadd/Makefile",
+        "sha256": "130226808e555bd6dcf3bcac29eb905df09fc01406faff3a2d25a6d7477a06f9"
+      },
+      "source_units": [
+        {
+          "path": "kernels/vecadd/host.cpp",
+          "sha256": "e57edfec23a1f216546359330b31b5c03616ad0529292230dd20e8da3b26c7c1",
+          "role": "host",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/vecadd/kernel.cpp",
+          "sha256": "8e78e83a1a9e4c2a374c8bdde3b39ab56d9381094501a8e8515f162c0d57cc22",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/vecadd/kernel_ilp2.cpp",
+          "sha256": "1ee2041bd3d4ffe27045999c9a43b97617a5d119f7ec834babbb1770e8701a3a",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/vecadd/kernel_ilp2_w8.cpp",
+          "sha256": "49c55d17938a23d11221204edb147786c9647f1b9d7b38c9b676358f974907b8",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/vecadd/kernel_ilp4.cpp",
+          "sha256": "7913bc7290b65e1b4df40c782555b4d88c0d5b3ec5e3691c2166bfc94cbec6dc",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/vecadd/kernel_ilp4_ou2.cpp",
+          "sha256": "5751e7661919eca2aaa1f9774eda3a4f5587be848188e9e77b1ef9a9534da57c",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/vecadd/kernel_ilp4_w2.cpp",
+          "sha256": "4eeba22f903eb783370ac24529d6de6b3e8e22b4bc8589db73c3231d120d2c0e",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/vecadd/kernel_ilp4_w8.cpp",
+          "sha256": "2d22dc910a6cf065e75c7211f6003299d4f1cb8f92441cd130f04ff0f3ff26a8",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        },
+        {
+          "path": "kernels/vecadd/kernel_ilp8.cpp",
+          "sha256": "92b6c68fc89e945e20dacf84ca82949365a2337e1a37fb9a22a64f3452e00282",
+          "role": "device_or_support",
+          "has_main_definition": false,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [
+          "kernel.cpp",
+          "kernel_ilp2.cpp",
+          "kernel_ilp4.cpp",
+          "kernel_ilp4_ou2.cpp",
+          "kernel_ilp8.cpp",
+          "kernel_ilp2_w8.cpp",
+          "kernel_ilp4_w2.cpp",
+          "kernel_ilp4_w8.cpp"
+        ],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "kernel.radiance.elf",
+          "kernel_ilp2.radiance.elf",
+          "kernel_ilp4.radiance.elf",
+          "kernel_ilp4_ou2.radiance.elf",
+          "kernel_ilp8.radiance.elf",
+          "kernel_ilp2_w8.radiance.elf",
+          "kernel_ilp4_w2.radiance.elf",
+          "kernel_ilp4_w8.radiance.elf"
+        ]
+      }
+    },
+    {
+      "name": "vecaddx",
+      "makefile": {
+        "path": "kernels/vecaddx/Makefile",
+        "sha256": "44ec46dcab08d90cfc4b41edafc74891e69e465b77f0fe2afcc8e6e73a9d4dab"
+      },
+      "source_units": [
+        {
+          "path": "kernels/vecaddx/kernel.cpp",
+          "sha256": "45960fbbd183d45ba67bffc59c46e7ae1452ce4ec054cc023d91330040254340",
+          "role": "device_or_support",
+          "has_main_definition": true,
+          "language": ".cpp",
+          "features": {
+            "mu_schedule": false,
+            "mu_barrier": false,
+            "mx_or_gemmini": false,
+            "inline_assembly": false
+          },
+          "import_status": "unattempted"
+        }
+      ],
+      "build_targets": {
+        "entry_sources": [],
+        "support_sources": [],
+        "variants": [],
+        "radiance_elfs": [
+          "vecaddx.radiance.elf"
+        ]
+      }
+    }
+  ]
+}

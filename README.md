@@ -111,6 +111,17 @@ received this parametric original-size lowering.
 The operation-by-operation comparison with local kernel source is in
 `docs/source_equivalence.md`.
 
+## Coverage inventory
+
+`tools/inventory_kernels.py` reads the local kernel source and evaluates each
+family's default Makefile target list without building it. The pinned
+`evidence/kernel-inventory-20261006.json` records source and Makefile hashes
+for revision `a27f6abd` of the clean radiance-kernels checkout. It finds 64
+families, 195 source units, and 136 default Radiance ELF targets, including
+20 named variants. Environment-driven sweeps can add further variants; the
+inventory records the default configuration only. These counts define work
+to verify, not current compiler coverage.
+
 ## Radiance composition
 
 Radiance SoC facts and MX/Muon synchronization live in the separate
