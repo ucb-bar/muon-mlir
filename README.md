@@ -152,7 +152,9 @@ PyTorch STREAM outputs against the handwritten source equations, and
 `tests/capture_model2mlir_gemm.py` checks all 4,096 BF16 SIMT GEMM output
 words against the source generator. The resulting typed upstream MLIR parses
 here. It still needs Muon launch/thread distribution and native target
-lowering; parsing is not execution.
+lowering. The separate Radiance host check executes the generated STREAM
+parallel loops and SIMT GEMM matmul against the complete source goldens;
+that is not Muon device execution.
 
 ## Radiance composition
 
