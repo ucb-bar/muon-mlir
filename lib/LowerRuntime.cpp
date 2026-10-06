@@ -16,6 +16,9 @@ public:
   MLIR_DEFINE_EXPLICIT_INTERNAL_INLINE_TYPE_ID(LowerRuntimePass)
   StringRef getArgument() const final { return "lower-muon-runtime"; }
   StringRef getDescription() const final { return "Lower Muon control ops to the Muon runtime ABI"; }
+  void getDependentDialects(DialectRegistry &registry) const override {
+    registry.insert<arith::ArithDialect, func::FuncDialect, LLVM::LLVMDialect>();
+  }
   void runOnOperation() override {
     ModuleOp module = getOperation();
     MLIRContext *ctx = module.getContext();
