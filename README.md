@@ -122,6 +122,38 @@ families, 195 source units, and 136 default Radiance ELF targets, including
 inventory records the default configuration only. These counts define work
 to verify, not current compiler coverage.
 
+## Standalone profile and typed compiler entry
+
+`profiles/radiance-muon-one-core.json` binds the one-core
+`RadianceMuonConfig` to the selected Chipyard configuration source hash. The
+experimental `tools/muon-compile.py` driver verifies that hash, lowers Muon
+operations through `muon-opt`, translates with the matching native Muon MLIR
+tools, and can emit LLVM IR, an RV32 object, or an ELF with explicit runtime
+and linker inputs. Its receipt records the profile, tools, input, and output
+hashes. `--emit llvm-ir` is currently verified on `tests/stream_copy.mlir`.
+The available native Muon Clang predates the stack-word-stride option required
+by the source's 16-stride profile, so an object or ELF from this configuration
+is not yet qualified. The driver refuses a mismatched source hash or runtime
+stride instead of silently compiling for another topology.
+
+For the verified IR stage, run:
+
+```sh
+python3 tools/muon-compile.py tests/stream_copy.mlir \
+  --profile profiles/radiance-muon-one-core.json \
+  --chipyard /path/to/chipyard --emit llvm-ir \
+  --muon-opt build/tools/muon-opt --mlir-bin /path/to/muon-llvm/bin \
+  --output build/stream_copy.one_core.ll
+```
+
+The latest model2MLIR frontend capture is in `radiance-mlir`:
+`tests/capture_model2mlir_stream.py` checks all four one-million-element
+PyTorch STREAM outputs against the handwritten source equations, and
+`tests/capture_model2mlir_gemm.py` checks all 4,096 BF16 SIMT GEMM output
+words against the source generator. The resulting typed upstream MLIR parses
+here. It still needs Muon launch/thread distribution and native target
+lowering; parsing is not execution.
+
 ## Radiance composition
 
 Radiance SoC facts and MX/Muon synchronization live in the separate

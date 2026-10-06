@@ -1,0 +1,16 @@
+{
+  "schema": "muon.target_profile.v1",
+  "name": "radiance-muon-one-core",
+  "config": "RadianceMuonConfig",
+  "muon": {
+    "clusters": 1,
+    "cores_per_cluster": 1,
+    "lanes_per_warp": 16,
+    "max_warps_per_core": 8,
+    "stack_word_stride": 16
+  },
+  "source_files": {
+    "generators/radiance/chipyard/RadianceConfigs.scala": "1a1c854b8789959f03dd107a2c50f3d04e97eb2342e9c68c3569f74a216fab78"
+  },
+  "qualification": "source-bound isolated Muon config; no FPGA artifact claimed"
+}
