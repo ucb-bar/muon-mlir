@@ -4,13 +4,13 @@
   "emit": "llvm-ir",
   "profile_name": "radiance-muon-one-core",
   "profile_sha256": "7daa251d86a979ee88109e359b3d2738ccea8fe9fbdae529029ba3358a06814c",
-  "input_sha256": "991d6bba8a42f5a57e31ab6da99de9cbb05ff0eda77ecd8ce97c9f9d1f29789d",
-  "lowered_mlir_sha256": "1b55b73f321f09db8fa1ab233db38c3d0d3910f48769aa9058768f4aa3ee8aa3",
-  "llvm_ir_sha256": "3e2d0eb2dd245ed7b1f9a80cf3aadba9f794c9d5de446bcc693a6cca3412d5ad",
-  "output_sha256": "3e2d0eb2dd245ed7b1f9a80cf3aadba9f794c9d5de446bcc693a6cca3412d5ad",
+  "input_sha256": "ec5ba954e5e4a4252de697d7916c6fe6e0b0ee8c6e3feac16a90c23382622ea7",
+  "lowered_mlir_sha256": "357193fd01f67e53bcd7cbc510e12b951ef6fd30b0ea83d7f778b5dca38d1a35",
+  "llvm_ir_sha256": "8af21de7640c7309ba2f8af0848f36a330733c8462b02875a632a9de47c307af",
+  "output_sha256": "8af21de7640c7309ba2f8af0848f36a330733c8462b02875a632a9de47c307af",
   "muon_opt_sha256": "fd9e6d13961a3775bdc07d5ff004ccf6239e3fdba6735cede558ded0c0f108ab",
   "mlir_translate_sha256": "9171bfda7b8184d5962321a28fd3fc87c3914c880f0327485455601617e6641d",
   "stack_word_stride": 16,
-  "muon_launch_count": 1,
-  "scheduling_status": "launch_lowered"
+  "muon_launch_count": 0,
+  "scheduling_status": "standard_ir_not_distributed"
 }

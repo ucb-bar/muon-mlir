@@ -106,6 +106,9 @@ def main() -> None:
     llvm_ir = work / "muon.ll"
     run([str(muon_opt), "--lower-muon-runtime", str(source), "-o", str(lowered)],
         work / "lower.log")
+    launch_count = lowered.read_text().count("call @mu_schedule(")
+    if args.emit != "llvm-ir" and launch_count == 0:
+        parser.error("object/ELF output requires a Muon launch; distribute standard loops first")
     run([str(mlir_bin / "mlir-opt"), str(lowered), "--convert-scf-to-cf",
          "--convert-arith-to-llvm", "--finalize-memref-to-llvm",
          "--convert-func-to-llvm", "--convert-cf-to-llvm",
@@ -167,7 +170,10 @@ def main() -> None:
                "llvm_ir_sha256": digest(llvm_ir), "output_sha256": digest(output),
                "muon_opt_sha256": digest(muon_opt),
                "mlir_translate_sha256": digest(mlir_bin / "mlir-translate"),
-               "stack_word_stride": stride}
+               "stack_word_stride": stride,
+               "muon_launch_count": launch_count,
+               "scheduling_status": ("launch_lowered" if launch_count else
+                                     "standard_ir_not_distributed")}
     if clang:
         receipt["muon_clang_sha256"] = digest(clang)
     if args.emit == "elf":

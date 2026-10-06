@@ -156,6 +156,14 @@ lowering. The separate Radiance host check executes the generated STREAM
 parallel loops and SIMT GEMM matmul against the complete source goldens;
 that is not Muon device execution.
 
+The source-generated STREAM Triad `scf.parallel` IR now passes through
+`muon-opt --lower-muon-runtime` and the native Muon MLIR translator to LLVM
+IR. `evidence/model2mlir_stream_triad_muon_ir_20261006.json` records the
+input and output hashes with `scheduling_status=standard_ir_not_distributed`.
+The driver refuses object and ELF emission for that IR until a Muon launch
+distribution pass exists, so this generic serial translation cannot be
+mistaken for a SIMT target binary.
+
 ## Radiance composition
 
 Radiance SoC facts and MX/Muon synchronization live in the separate
