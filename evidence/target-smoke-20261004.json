@@ -1,0 +1,110 @@
+{
+  "schema": "muon_mlir_target_smoke.v1",
+  "radiance_plan_sha256": "ca7fcc1bdceb6d01c49cf1e67c530aad1ffc0f9a6b588bde7e2efa5d9f59d173",
+  "cyclotron_config_sha256": "70ef96c088c01caf3093bdff649fdb1926ea60ee68c4fcbd98af5edbf6dbf508",
+  "cyclotron_check_sha256": "fc03714f4f2de3ec601e2fb5678f4efe861392d8aeac0885dc0f452672de66d3",
+  "muon_clang_sha256": "c7e85b77ab4be1e0b43d06f9843823b65c59afd663bf2fddd41dfe3f6fbb2725",
+  "runtime_archive_sha256": "d650c431441ccb31093181373f401025ae9ac300abd7e7676154fee4b36c63a8",
+  "muon_opt_sha256": "7e40f3199532ac583bbbd8fba7b2d705b2219ea2313ebefdfc8970326dc63229",
+  "workloads": [
+    {
+      "family": "stream",
+      "kind": "copy",
+      "status": "passed",
+      "scope": "small_complete_output_smoke",
+      "input_sha256": "bb499fd004a63dfd3490a7912bae440c1516d405e539e61d1a672d0ec1e862f2",
+      "mlir_sha256": "bb499fd004a63dfd3490a7912bae440c1516d405e539e61d1a672d0ec1e862f2",
+      "elf_sha256": "0eedcba127c32703ab2b0d71e5a9800c990c8eb784f88bd04492123b4e9b0c54",
+      "cyclotron_steps": 2205,
+      "result_address": "0x10001048"
+    },
+    {
+      "family": "stream",
+      "kind": "scale",
+      "status": "passed",
+      "scope": "small_complete_output_smoke",
+      "input_sha256": "565c8cad685de43fd7b8d1f4017490f02989a2892ee1fb70cee132c08f0a9afd",
+      "mlir_sha256": "565c8cad685de43fd7b8d1f4017490f02989a2892ee1fb70cee132c08f0a9afd",
+      "elf_sha256": "23e8134a3fd22427d6ee75bade3189a3bfe7d36e834ff083b6f3ef0be2040e81",
+      "cyclotron_steps": 2588,
+      "result_address": "0x10001048"
+    },
+    {
+      "family": "stream",
+      "kind": "add",
+      "status": "passed",
+      "scope": "small_complete_output_smoke",
+      "input_sha256": "99da5161cee8406b7f8ee2a880e3443a7e237d2fd3f9f57c5bfc1ddcd7f5fa35",
+      "mlir_sha256": "99da5161cee8406b7f8ee2a880e3443a7e237d2fd3f9f57c5bfc1ddcd7f5fa35",
+      "elf_sha256": "5b4d4edf89823f5b8b395e171ddf2a2d47b5d465b84fa9f2381b3ce598928053",
+      "cyclotron_steps": 2306,
+      "result_address": "0x10001048"
+    },
+    {
+      "family": "stream",
+      "kind": "triad",
+      "status": "passed",
+      "scope": "small_complete_output_smoke",
+      "input_sha256": "8cccb29a03966b0c18a0df86a7c44902adab8647d3ae668d402ddf68c4c13620",
+      "mlir_sha256": "8cccb29a03966b0c18a0df86a7c44902adab8647d3ae668d402ddf68c4c13620",
+      "elf_sha256": "48e41b6dd6d7154e0b8261df5c5f7e67212918a8d4fa7b301dbc466216a2dcab",
+      "cyclotron_steps": 2589,
+      "result_address": "0x10001048"
+    },
+    {
+      "family": "spatter",
+      "kind": "gather",
+      "status": "passed",
+      "scope": "small_complete_output_smoke",
+      "input_sha256": "065d5a1833e8c70c42b7bd38057dfb7ed8728a85f4a4946405bfbde0b67e11da",
+      "mlir_sha256": "59adf601ae8d936b34317b5e87c668ba697736534ad90245691f42a1bb49f205",
+      "elf_sha256": "af23a9e14eebc1524039d5dc812c0d8d9e609182e385fd2cd4dfb8328888dde5",
+      "cyclotron_steps": 367,
+      "result_address": "0x1000412c"
+    },
+    {
+      "family": "spatter",
+      "kind": "gs",
+      "status": "passed",
+      "scope": "small_complete_output_smoke",
+      "input_sha256": "21c603abecb034d961cf9269f4e7f2af30eff09432293278d8198e87229e338f",
+      "mlir_sha256": "9b9db003b51684dbcf1771c8289ece05573870fe186cf1ee5263c27596c2b14a",
+      "elf_sha256": "69adb56ce313d174a6a43c8fc3b8036d8dd0d0d37721d433acb07eb7f01892f8",
+      "cyclotron_steps": 924,
+      "result_address": "0x100041e8"
+    },
+    {
+      "family": "spatter",
+      "kind": "multigather",
+      "status": "passed",
+      "scope": "small_complete_output_smoke",
+      "input_sha256": "df1024620d2dc1f894c8047dddcd1a2427f886d95741886259f32734900d4329",
+      "mlir_sha256": "48cfcbccab2f83991e41984b43525b484cb165649d3ec79fbbda18d9e2ecab5c",
+      "elf_sha256": "ead4d694a87f2409f578857dcdee2b279696409ff597b8eaa14d2dd34acf08ae",
+      "cyclotron_steps": 367,
+      "result_address": "0x1000412c"
+    },
+    {
+      "family": "spatter",
+      "kind": "multiscatter",
+      "status": "passed",
+      "scope": "small_complete_output_smoke",
+      "input_sha256": "71b973f79b27d6dd870f8b2564b32f526aa612ba524e15808345d5746c9d1155",
+      "mlir_sha256": "55e0e089fc33496323113fa68522df7faa71ed46e53aabe1890300c99b44ef26",
+      "elf_sha256": "37c6d69299486370184fdb8de194c67ef8e1ecf6246f602d2c3919770454bfc1",
+      "cyclotron_steps": 924,
+      "result_address": "0x100041e8"
+    },
+    {
+      "family": "spatter",
+      "kind": "scatter",
+      "status": "passed",
+      "scope": "small_complete_output_smoke",
+      "input_sha256": "c2be646d8c2755cf55317114880e43aff5a69d2ada07fe68cfc84689feb2f092",
+      "mlir_sha256": "54b2fd7fbda003a58d9cb2d261acf107ff4f88e3f4b0d2d4a3586014a374cdfc",
+      "elf_sha256": "c491b454c314a7feeb787ac5c7e0a78a603678ac70de17e9d4d893879bf8bc11",
+      "cyclotron_steps": 924,
+      "result_address": "0x100041e8"
+    }
+  ]
+}
