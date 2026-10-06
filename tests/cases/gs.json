@@ -1,0 +1,1 @@
+{"kind":"gs","gather":[0,2,4,6],"scatter":[0,2,2,6],"length":4,"count":3,"wrap":2,"delta_gather":8,"delta_scatter":8,"gather_final_wrap":2,"collision_policy":"ordered"}
