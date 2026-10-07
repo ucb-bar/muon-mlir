@@ -2,4 +2,5 @@
 namespace mlir::muon {
 void registerLowerRuntimePass();
 void registerDistributeParallelPass();
+void registerOutlineForwardPass();
 }

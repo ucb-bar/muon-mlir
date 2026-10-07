@@ -15,6 +15,7 @@
 int main(int argc, char **argv) {
   mlir::muon::registerLowerRuntimePass();
   mlir::muon::registerDistributeParallelPass();
+  mlir::muon::registerOutlineForwardPass();
   mlir::DialectRegistry registry;
   registry.insert<mlir::muon::MuonDialect, mlir::func::FuncDialect,
                   mlir::LLVM::LLVMDialect, mlir::arith::ArithDialect,

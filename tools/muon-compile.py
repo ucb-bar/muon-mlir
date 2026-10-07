@@ -76,6 +76,8 @@ def main() -> None:
     parser.add_argument("--muon-opt", type=Path, required=True)
     parser.add_argument("--mlir-bin", type=Path, required=True,
                         help="mlir-opt and mlir-translate from the native Muon LLVM build")
+    parser.add_argument("--upstream-mlir-opt", type=Path,
+                        help="newer upstream mlir-opt to normalize captured standard IR before native Muon LLVM")
     parser.add_argument("--muon-clang", type=Path)
     parser.add_argument("--runtime-archive", type=Path)
     parser.add_argument("--runtime-include", type=Path)
@@ -85,6 +87,12 @@ def main() -> None:
     parser.add_argument("--tohost", type=Path)
     parser.add_argument("--runtime-stack-word-stride", type=int, choices=(1, 16),
                         help="stride used to build the supplied runtime archive")
+    parser.add_argument("--forward-inputs",
+                        help="comma-separated external storage symbols for model2MLIR forward inputs")
+    parser.add_argument("--forward-output",
+                        help="external result storage symbol for model2MLIR forward")
+    parser.add_argument("--forward-warps", type=int, default=4,
+                        help="warps per core for an outlined model2MLIR forward")
     parser.add_argument("--source", type=Path, action="append", default=[],
                         help="additional C/C++ source, such as a handwritten test entry")
     parser.add_argument("--extra-object", type=Path, action="append", default=[])
@@ -101,17 +109,32 @@ def main() -> None:
     muon_opt = args.muon_opt.resolve()
     mlir_bin = args.mlir_bin.resolve()
     clang = required(parser, "--muon-clang", args.muon_clang) if args.emit != "llvm-ir" else None
+    if bool(args.forward_inputs) != bool(args.forward_output):
+        parser.error("--forward-inputs and --forward-output must be supplied together")
+    if args.forward_inputs and not 1 <= args.forward_warps <= muon["max_warps_per_core"]:
+        parser.error("--forward-warps exceeds the selected profile")
     lowered = work / "muon.lowered.mlir"
+    normalized = work / "muon.normalized.mlir"
     llvm_mlir = work / "muon.llvm.mlir"
     llvm_ir = work / "muon.ll"
-    run([str(muon_opt),
+    outline = ([f"--outline-forward-to-muon=inputs={args.forward_inputs} "
+                f"output={args.forward_output} warps={args.forward_warps}"]
+               if args.forward_inputs else [])
+    run([str(muon_opt), *outline,
          f"--distribute-scf-parallel-to-muon=blocks={muon['clusters']}",
          "--lower-muon-runtime", str(source), "-o", str(lowered)],
         work / "lower.log")
     launch_count = lowered.read_text().count("call @mu_schedule(")
     if args.emit != "llvm-ir" and launch_count == 0:
         parser.error("object/ELF output requires a Muon launch; distribute standard loops first")
-    run([str(mlir_bin / "mlir-opt"), str(lowered), "--convert-scf-to-cf",
+    native_input = lowered
+    if args.upstream_mlir_opt:
+        run([str(args.upstream_mlir_opt.resolve()), str(lowered),
+             "--expand-strided-metadata", "--lower-affine", "-o", str(normalized)],
+            work / "normalize.log")
+        native_input = normalized
+    run([str(mlir_bin / "mlir-opt"), str(native_input),
+         "--expand-strided-metadata", "--lower-affine", "--convert-scf-to-cf",
          "--convert-arith-to-llvm", "--finalize-memref-to-llvm",
          "--convert-func-to-llvm", "--convert-cf-to-llvm",
          "--reconcile-unrealized-casts", "-o", str(llvm_mlir)],
@@ -169,11 +192,19 @@ def main() -> None:
                "status": "emitted_unexecuted", "emit": args.emit,
                "profile_name": profile["name"], "profile_sha256": digest(profile_path),
                "input_sha256": digest(source), "lowered_mlir_sha256": digest(lowered),
+               "normalized_mlir_sha256": (digest(normalized) if args.upstream_mlir_opt
+                                            else None),
                "llvm_ir_sha256": digest(llvm_ir), "output_sha256": digest(output),
                "muon_opt_sha256": digest(muon_opt),
                "mlir_translate_sha256": digest(mlir_bin / "mlir-translate"),
+               "upstream_mlir_opt_sha256": (digest(args.upstream_mlir_opt.resolve())
+                                             if args.upstream_mlir_opt else None),
                "stack_word_stride": stride,
                "muon_blocks": muon["clusters"],
+               "forward_storage_binding": (
+                   {"inputs": args.forward_inputs.split(","),
+                    "output": args.forward_output, "warps_per_core": args.forward_warps}
+                   if args.forward_inputs else None),
                "muon_launch_count": launch_count,
                "scheduling_status": ("launch_lowered" if launch_count else
                                      "standard_ir_not_distributed")}
