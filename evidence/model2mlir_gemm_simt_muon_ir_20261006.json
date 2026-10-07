@@ -4,11 +4,11 @@
   "emit": "llvm-ir",
   "profile_name": "radiance-muon-one-core",
   "profile_sha256": "7daa251d86a979ee88109e359b3d2738ccea8fe9fbdae529029ba3358a06814c",
-  "input_sha256": "ec5ba954e5e4a4252de697d7916c6fe6e0b0ee8c6e3feac16a90c23382622ea7",
-  "lowered_mlir_sha256": "54f7f66689bb50b3af0c4f910d9c9bc10d15eaf45598e5cbaafd15d78176691c",
+  "input_sha256": "79a06d53e9018af3968e91ac3bd7e99e20c1fe1548762542a61562d9c0366876",
+  "lowered_mlir_sha256": "1985c0c545cbf0371ed46ab3295e2e3e940cabeb2b654f1384f51173d9372d5d",
   "normalized_mlir_sha256": null,
-  "llvm_ir_sha256": "b656ee1976ed6a69d2351e25f6af7849ab79d146d59bce70ba5b23996c394eb3",
-  "output_sha256": "b656ee1976ed6a69d2351e25f6af7849ab79d146d59bce70ba5b23996c394eb3",
+  "llvm_ir_sha256": "75cb8ad8cdd2a6d34d1d8a34c1afbf5be097d7b7403802646a11d3d29d31b480",
+  "output_sha256": "75cb8ad8cdd2a6d34d1d8a34c1afbf5be097d7b7403802646a11d3d29d31b480",
   "muon_opt_sha256": "94312508422a53427e54fdada27e4b9311f97b50418ed921363d90eb144aa001",
   "mlir_translate_sha256": "9171bfda7b8184d5962321a28fd3fc87c3914c880f0327485455601617e6641d",
   "upstream_mlir_opt_sha256": null,
@@ -16,13 +16,12 @@
   "muon_blocks": 1,
   "forward_storage_binding": {
     "inputs": [
-      "stream_a",
-      "stream_b",
-      "stream_c"
+      "gemm_a",
+      "gemm_b"
     ],
-    "output": "stream_a",
+    "output": "gemm_c",
     "warps_per_core": 4,
-    "shared_scratch": false
+    "shared_scratch": true
   },
   "muon_launch_count": 1,
   "scheduling_status": "launch_lowered"

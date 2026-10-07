@@ -194,6 +194,18 @@ compiler, runtime, and device run are still needed to qualify these paths on
 hardware; the Spatter trace also lacks the source's repeated destination
 writes.
 
+For a bufferized forward with multiple allocation-backed stages, the
+outliner accepts `shared-scratch=true` when every intermediate allocation has
+a static identity layout. It hoists those buffers to module globals and
+inserts a global-memory fence and four-warp barrier after each top-level
+parallel stage. The driver exposes this as `--forward-shared-scratch` and
+requires a one-cluster profile. The captured SIMT GEMM uses this path: its
+five stages and all 4,096 BF16 source golden words pass a 64-lane host
+callback run, and native Muon LLVM IR translation succeeds. See
+`evidence/model2mlir_gemm_simt_muon_ir_20261006.json` and the Radiance host
+receipt. Device scheduling, scratch capacity, and performance remain to be
+qualified.
+
 ## Radiance composition
 
 Radiance SoC facts and MX/Muon synchronization live in the separate
