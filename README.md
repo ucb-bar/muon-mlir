@@ -161,8 +161,23 @@ The source-generated STREAM Triad `scf.parallel` IR now passes through
 IR. `evidence/model2mlir_stream_triad_muon_ir_20261006.json` records the
 input and output hashes with `scheduling_status=standard_ir_not_distributed`.
 The driver refuses object and ELF emission for that IR until a Muon launch
-distribution pass exists, so this generic serial translation cannot be
+is present, so this generic serial translation cannot be
 mistaken for a SIMT target binary.
+
+`muon-opt --distribute-scf-parallel-to-muon=blocks=N` now distributes
+reduction-free `scf.parallel` loops inside a launched Muon callback. It maps
+the first loop dimension to `block_id * threads_per_block + thread_id` and
+uses `N * threads_per_block` as the grid stride. Remaining dimensions become
+serial loops per lane. `muon-compile.py` selects `N` from the verified
+profile's cluster count before runtime lowering. The host regression runs
+all four 97-element STREAM operations with two callback blocks and checks
+each destination was written exactly once. A 3D regression checks all 24
+elements exactly once. Reductions and nested parallel loops fail closed.
+
+The captured model2MLIR `forward` functions still have tensor or memref
+arguments and return values. They must be outlined into callbacks with
+source-bound input and output buffers before this pass can distribute their
+loops on Muon hardware. The current pass does not perform that outlining.
 
 ## Radiance composition
 

@@ -8,9 +8,10 @@
   "lowered_mlir_sha256": "357193fd01f67e53bcd7cbc510e12b951ef6fd30b0ea83d7f778b5dca38d1a35",
   "llvm_ir_sha256": "8af21de7640c7309ba2f8af0848f36a330733c8462b02875a632a9de47c307af",
   "output_sha256": "8af21de7640c7309ba2f8af0848f36a330733c8462b02875a632a9de47c307af",
-  "muon_opt_sha256": "fd9e6d13961a3775bdc07d5ff004ccf6239e3fdba6735cede558ded0c0f108ab",
+  "muon_opt_sha256": "5616edba4d7c7af248e63e5bf0226f829b1acb8eaf282a5006f6290810a547d1",
   "mlir_translate_sha256": "9171bfda7b8184d5962321a28fd3fc87c3914c880f0327485455601617e6641d",
   "stack_word_stride": 16,
+  "muon_blocks": 1,
   "muon_launch_count": 0,
   "scheduling_status": "standard_ir_not_distributed"
 }

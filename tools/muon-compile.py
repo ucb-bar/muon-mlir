@@ -104,7 +104,9 @@ def main() -> None:
     lowered = work / "muon.lowered.mlir"
     llvm_mlir = work / "muon.llvm.mlir"
     llvm_ir = work / "muon.ll"
-    run([str(muon_opt), "--lower-muon-runtime", str(source), "-o", str(lowered)],
+    run([str(muon_opt),
+         f"--distribute-scf-parallel-to-muon=blocks={muon['clusters']}",
+         "--lower-muon-runtime", str(source), "-o", str(lowered)],
         work / "lower.log")
     launch_count = lowered.read_text().count("call @mu_schedule(")
     if args.emit != "llvm-ir" and launch_count == 0:
@@ -171,6 +173,7 @@ def main() -> None:
                "muon_opt_sha256": digest(muon_opt),
                "mlir_translate_sha256": digest(mlir_bin / "mlir-translate"),
                "stack_word_stride": stride,
+               "muon_blocks": muon["clusters"],
                "muon_launch_count": launch_count,
                "scheduling_status": ("launch_lowered" if launch_count else
                                      "standard_ir_not_distributed")}
