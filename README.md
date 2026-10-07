@@ -151,10 +151,8 @@ The latest model2MLIR frontend capture is in `radiance-mlir`:
 PyTorch STREAM outputs against the handwritten source equations, and
 `tests/capture_model2mlir_gemm.py` checks all 4,096 BF16 SIMT GEMM output
 words against the source generator. The resulting typed upstream MLIR parses
-here. It still needs Muon launch/thread distribution and native target
-lowering. The separate Radiance host check executes the generated STREAM
-parallel loops and SIMT GEMM matmul against the complete source goldens;
-that is not Muon device execution.
+here. The separate Radiance host check executes the generated STREAM
+parallel loops and SIMT GEMM matmul against the complete source goldens.
 
 The source-generated STREAM Triad `scf.parallel` IR now passes through
 `muon-opt --lower-muon-runtime` and the native Muon MLIR translator to LLVM
@@ -174,10 +172,27 @@ all four 97-element STREAM operations with two callback blocks and checks
 each destination was written exactly once. A 3D regression checks all 24
 elements exactly once. Reductions and nested parallel loops fail closed.
 
-The captured model2MLIR `forward` functions still have tensor or memref
-arguments and return values. They must be outlined into callbacks with
-source-bound input and output buffers before this pass can distribute their
-loops on Muon hardware. The current pass does not perform that outlining.
+`--outline-forward-to-muon=inputs=stream_a,stream_b,stream_c output=stream_a
+warps=4` now binds a bufferized model2MLIR `forward` to external storage,
+clones its computation into a Muon callback, emits a launch and fence, and
+removes the original function. It accepts a direct static output allocation
+or an input identity return. The latter becomes a parallel copy into the
+named output, preserving STREAM Copy after upstream clone elimination.
+`muon-compile.py` exposes the same binding through `--forward-inputs`,
+`--forward-output`, and `--forward-warps`, then distributes the callback loop
+using the verified profile's cluster count. Radiance's full-size host run
+executes all four captured STREAM callbacks and compares every output word
+to `radiance-kernels`; see
+`radiance-mlir/evidence/model2mlir_stream_muon_host_20261006.json`.
+The native Muon driver also translates captured Triad through the native
+Muon MLIR toolchain to LLVM IR. It translates the captured three-dimensional
+Spatter Gather read trace after `--upstream-mlir-opt` normalizes current
+model2MLIR/MLIR syntax before the older native Muon MLIR parser. Receipts are
+in `evidence/model2mlir_stream_triad_outlined_muon_ir_20261006.json` and
+`evidence/model2mlir_spatter_trace_muon_ir_20261006.json`. A compatible target
+compiler, runtime, and device run are still needed to qualify these paths on
+hardware; the Spatter trace also lacks the source's repeated destination
+writes.
 
 ## Radiance composition
 

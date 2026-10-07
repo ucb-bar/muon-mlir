@@ -1,0 +1,28 @@
+{
+  "schema": "muon_mlir_compile_receipt.v1",
+  "status": "emitted_unexecuted",
+  "emit": "llvm-ir",
+  "profile_name": "radiance-muon-one-core",
+  "profile_sha256": "7daa251d86a979ee88109e359b3d2738ccea8fe9fbdae529029ba3358a06814c",
+  "input_sha256": "ec5ba954e5e4a4252de697d7916c6fe6e0b0ee8c6e3feac16a90c23382622ea7",
+  "lowered_mlir_sha256": "54f7f66689bb50b3af0c4f910d9c9bc10d15eaf45598e5cbaafd15d78176691c",
+  "normalized_mlir_sha256": null,
+  "llvm_ir_sha256": "b656ee1976ed6a69d2351e25f6af7849ab79d146d59bce70ba5b23996c394eb3",
+  "output_sha256": "b656ee1976ed6a69d2351e25f6af7849ab79d146d59bce70ba5b23996c394eb3",
+  "muon_opt_sha256": "ffe3c302214fa3be779e3a2e23746114761ac0207ec1e05e61c0548575a355c8",
+  "mlir_translate_sha256": "9171bfda7b8184d5962321a28fd3fc87c3914c880f0327485455601617e6641d",
+  "upstream_mlir_opt_sha256": null,
+  "stack_word_stride": 16,
+  "muon_blocks": 1,
+  "forward_storage_binding": {
+    "inputs": [
+      "stream_a",
+      "stream_b",
+      "stream_c"
+    ],
+    "output": "stream_a",
+    "warps_per_core": 4
+  },
+  "muon_launch_count": 1,
+  "scheduling_status": "launch_lowered"
+}
