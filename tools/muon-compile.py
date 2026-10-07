@@ -93,6 +93,8 @@ def main() -> None:
                         help="external result storage symbol for model2MLIR forward")
     parser.add_argument("--forward-warps", type=int, default=4,
                         help="warps per core for an outlined model2MLIR forward")
+    parser.add_argument("--forward-shared-scratch", action="store_true",
+                        help="hoist intermediate allocations and synchronize callback stages")
     parser.add_argument("--source", type=Path, action="append", default=[],
                         help="additional C/C++ source, such as a handwritten test entry")
     parser.add_argument("--extra-object", type=Path, action="append", default=[])
@@ -111,6 +113,8 @@ def main() -> None:
     clang = required(parser, "--muon-clang", args.muon_clang) if args.emit != "llvm-ir" else None
     if bool(args.forward_inputs) != bool(args.forward_output):
         parser.error("--forward-inputs and --forward-output must be supplied together")
+    if args.forward_shared_scratch and (not args.forward_inputs or muon["clusters"] != 1):
+        parser.error("shared scratch requires forward storage binding and one cluster")
     if args.forward_inputs and not 1 <= args.forward_warps <= muon["max_warps_per_core"]:
         parser.error("--forward-warps exceeds the selected profile")
     lowered = work / "muon.lowered.mlir"
@@ -118,7 +122,8 @@ def main() -> None:
     llvm_mlir = work / "muon.llvm.mlir"
     llvm_ir = work / "muon.ll"
     outline = ([f"--outline-forward-to-muon=inputs={args.forward_inputs} "
-                f"output={args.forward_output} warps={args.forward_warps}"]
+                f"output={args.forward_output} warps={args.forward_warps} "
+                f"shared-scratch={'true' if args.forward_shared_scratch else 'false'}"]
                if args.forward_inputs else [])
     run([str(muon_opt), *outline,
          f"--distribute-scf-parallel-to-muon=blocks={muon['clusters']}",
@@ -203,7 +208,8 @@ def main() -> None:
                "muon_blocks": muon["clusters"],
                "forward_storage_binding": (
                    {"inputs": args.forward_inputs.split(","),
-                    "output": args.forward_output, "warps_per_core": args.forward_warps}
+                    "output": args.forward_output, "warps_per_core": args.forward_warps,
+                    "shared_scratch": args.forward_shared_scratch}
                    if args.forward_inputs else None),
                "muon_launch_count": launch_count,
                "scheduling_status": ("launch_lowered" if launch_count else

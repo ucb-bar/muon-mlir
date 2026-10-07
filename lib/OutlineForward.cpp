@@ -26,6 +26,7 @@ public:
     inputs = other.inputs;
     output = other.output;
     warps = other.warps;
+    sharedScratch = other.sharedScratch;
   }
   Option<std::string> inputs{
       *this, "inputs", llvm::cl::desc("Comma-separated external input symbols")};
@@ -34,6 +35,10 @@ public:
   Option<unsigned> warps{
       *this, "warps", llvm::cl::desc("Warps per Muon core"),
       llvm::cl::init(4)};
+  Option<bool> sharedScratch{
+      *this, "shared-scratch",
+      llvm::cl::desc("Hoist intermediate static allocations to globals and synchronize stages"),
+      llvm::cl::init(false)};
 
   StringRef getArgument() const final { return "outline-forward-to-muon"; }
   StringRef getDescription() const final {
@@ -101,6 +106,27 @@ public:
       signalPassFailure();
       return;
     }
+    SmallVector<memref::AllocOp> scratch;
+    bool hasDealloc = false;
+    forward.walk([&](memref::DeallocOp) { hasDealloc = true; });
+    if (hasDealloc) {
+      forward.emitError("outlined callback cannot deallocate bound storage");
+      signalPassFailure();
+      return;
+    }
+    for (Operation &op : forward.getBody().front()) {
+      auto candidate = dyn_cast<memref::AllocOp>(&op);
+      if (!candidate || candidate == alloc)
+        continue;
+      auto type = cast<MemRefType>(candidate.getType());
+      if (!sharedScratch || candidate.getNumOperands() ||
+          !type.hasStaticShape() || !type.getLayout().isIdentity()) {
+        forward.emitError("intermediate allocation requires --shared-scratch and static identity layout");
+        signalPassFailure();
+        return;
+      }
+      scratch.push_back(candidate);
+    }
     SmallVector<MemRefType> boundTypes;
     for (Type type : forward.getArgumentTypes()) {
       auto memrefType = dyn_cast<MemRefType>(type);
@@ -142,6 +168,14 @@ public:
         }
       }
     }
+    for (auto [index, allocation] : llvm::enumerate(scratch)) {
+      std::string name = "__muon_scratch_" + std::to_string(index);
+      if (module.lookupSymbol(name)) {
+        forward.emitError("reserved Muon scratch symbol already exists: ") << name;
+        signalPassFailure();
+        return;
+      }
+    }
 
     IRRewriter writer(module.getContext());
     Location loc = forward.getLoc();
@@ -150,6 +184,13 @@ public:
       if (!module.lookupSymbol(name))
         writer.create<memref::GlobalOp>(loc, name, StringAttr(), type,
                                         Attribute(), false, IntegerAttr());
+    }
+    for (auto [index, allocation] : llvm::enumerate(scratch)) {
+      std::string name = "__muon_scratch_" + std::to_string(index);
+      writer.create<memref::GlobalOp>(loc, name, writer.getStringAttr("private"),
+                                      cast<MemRefType>(allocation.getType()),
+                                      UnitAttr::get(module.getContext()), false,
+                                      IntegerAttr());
     }
     Type ptr = LLVM::LLVMPointerType::get(module.getContext());
     Type i32 = writer.getI32Type();
@@ -170,9 +211,20 @@ public:
                                                        output.getValue());
     if (alloc)
       mapping.map(alloc.getResult(), result);
+    for (auto [index, allocation] : llvm::enumerate(scratch)) {
+      std::string name = "__muon_scratch_" + std::to_string(index);
+      Value global = writer.create<memref::GetGlobalOp>(
+          loc, allocation.getType(), name);
+      mapping.map(allocation.getResult(), global);
+    }
     for (Operation &op : forward.getBody().front().without_terminator()) {
-      if (!alloc || &op != alloc.getOperation())
-        writer.clone(op, mapping);
+      if (isa<memref::AllocOp>(op))
+        continue;
+      writer.clone(op, mapping);
+      if (sharedScratch && isa<scf::ParallelOp>(op)) {
+        writer.create<muon::FenceOp>(loc);
+        writer.create<muon::BarrierOp>(loc, 0, warps);
+      }
     }
     if (copyIdentity) {
       Value source = mapping.lookup(copiedArg);
