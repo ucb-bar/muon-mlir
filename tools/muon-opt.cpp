@@ -14,6 +14,7 @@
 #include "mlir/Tools/mlir-opt/MlirOptMain.h"
 int main(int argc, char **argv) {
   mlir::muon::registerLowerRuntimePass();
+  mlir::muon::registerDistributeParallelPass();
   mlir::DialectRegistry registry;
   registry.insert<mlir::muon::MuonDialect, mlir::func::FuncDialect,
                   mlir::LLVM::LLVMDialect, mlir::arith::ArithDialect,

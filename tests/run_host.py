@@ -46,12 +46,17 @@ def reference_check(cases: list[dict], plan_path: Path) -> None:
 
 
 def compile_case(mlir: Path, harness: Path, stem: Path, muon_opt: Path,
-                 llvm_bin: Path) -> None:
+                 llvm_bin: Path, distribute: bool = False,
+                 blocks: int = 1) -> None:
     lowered = stem.with_suffix(".lowered.mlir")
     llvm_mlir = stem.with_suffix(".llvm.mlir")
     llvm_ir = stem.with_suffix(".ll")
     executable = stem.with_suffix(".exe")
-    run(str(muon_opt), "--lower-muon-runtime", str(mlir), "-o", str(lowered))
+    passes = ([f"--distribute-scf-parallel-to-muon=blocks={blocks}"]
+              if distribute else [])
+    run(str(muon_opt), *passes, "--lower-muon-runtime", str(mlir), "-o", str(lowered))
+    if distribute and "scf.parallel" in lowered.read_text():
+        raise RuntimeError("Muon distribution left a parallel loop in the callback")
     run(str(llvm_bin / "mlir-opt"), str(lowered),
         "--convert-scf-to-cf", "--convert-arith-to-llvm",
         "--finalize-memref-to-llvm", "--convert-func-to-llvm",
@@ -83,6 +88,17 @@ def main() -> None:
             stem.with_suffix(".c").write_text(harness)
             compile_case(stem.with_suffix(".mlir"), stem.with_suffix(".c"),
                          stem, args.muon_opt, args.llvm_bin)
+            parallel = root / f"stream_parallel_{kind}"
+            parallel_mlir, parallel_harness = generate_stream(
+                kind, parallel=True, blocks=2)
+            parallel.with_suffix(".mlir").write_text(parallel_mlir)
+            parallel.with_suffix(".c").write_text(parallel_harness)
+            compile_case(parallel.with_suffix(".mlir"), parallel.with_suffix(".c"),
+                         parallel, args.muon_opt, args.llvm_bin,
+                         distribute=True, blocks=2)
+        compile_case(HERE / "parallel_nd.mlir", HERE / "parallel_nd_host.c",
+                     root / "parallel_nd", args.muon_opt, args.llvm_bin,
+                     distribute=True, blocks=2)
         for case in CASES:
             stem = root / case["kind"]
             mlir, harness = generate(case)

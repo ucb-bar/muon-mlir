@@ -1,2 +1,5 @@
 #pragma once
-namespace mlir::muon { void registerLowerRuntimePass(); }
+namespace mlir::muon {
+void registerLowerRuntimePass();
+void registerDistributeParallelPass();
+}
