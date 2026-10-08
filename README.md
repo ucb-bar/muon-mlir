@@ -135,6 +135,9 @@ The available native Muon Clang predates the stack-word-stride option required
 by the source's 16-stride profile, so an object or ELF from this configuration
 is not yet qualified. The driver refuses a mismatched source hash or runtime
 stride instead of silently compiling for another topology.
+It probes the native compiler's selected stack ABI before object or ELF
+lowering and reports an explicit error when the compiler rejects that ABI.
+LLVM IR emission remains available for analytical checks.
 
 For the verified IR stage, run:
 

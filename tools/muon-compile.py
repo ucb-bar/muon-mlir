@@ -64,6 +64,25 @@ def required(parser: argparse.ArgumentParser, name: str, value: Path | None) -> 
     return value.resolve()
 
 
+def probe_native_abi(clang: Path, stride: int) -> None:
+    """Require the device compiler to accept the profile's stack ABI options."""
+    options = (["-mllvm", f"-riscv-stack-word-stride={stride}"]
+               if stride != 1 else [])
+    result = subprocess.run(
+        [str(clang), "-target", "riscv32-unknown-elf",
+         "-march=rv32im_zfinx_zhinx", "-mabi=ilp32",
+         "-Xclang", "-target-feature", "-Xclang", "+vortex",
+         *options, "-ffreestanding", "-x", "c", "-c", "-", "-o", "/dev/null"],
+        input="void muon_abi_probe(void) {}\n", capture_output=True, text=True,
+    )
+    if result.returncode:
+        detail = (result.stderr or result.stdout).strip().splitlines()
+        raise ValueError(
+            f"native Muon compiler does not support stack-word-stride={stride}: "
+            f"{detail[0] if detail else 'compiler exited nonzero'}"
+        )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path, help="typed Muon/standard-dialect MLIR module")
@@ -111,6 +130,11 @@ def main() -> None:
     muon_opt = args.muon_opt.resolve()
     mlir_bin = args.mlir_bin.resolve()
     clang = required(parser, "--muon-clang", args.muon_clang) if args.emit != "llvm-ir" else None
+    if clang is not None:
+        try:
+            probe_native_abi(clang, stride)
+        except ValueError as exc:
+            parser.error(str(exc))
     if bool(args.forward_inputs) != bool(args.forward_output):
         parser.error("--forward-inputs and --forward-output must be supplied together")
     if args.forward_shared_scratch and (not args.forward_inputs or muon["clusters"] != 1):
