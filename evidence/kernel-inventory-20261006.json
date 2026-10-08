@@ -1,6 +1,5 @@
 {
   "schema": "muon_mlir_kernel_inventory.v2",
-  "source_root": "/scratch/agustin/projects/chipyard/radiance-kernels-firesim",
   "source_git_revision": "a27f6abd24830fdc7999d872d170ab778f1e662e",
   "source_git_clean": true,
   "family_count": 64,

@@ -102,7 +102,7 @@ def main() -> None:
     status = subprocess.run(["git", "status", "--porcelain"], cwd=root,
                             capture_output=True, text=True, check=True).stdout
     doc = {"schema": "muon_mlir_kernel_inventory.v2",
-           "source_root": str(root), "source_git_revision": revision,
+           "source_git_revision": revision,
            "source_git_clean": not bool(status.strip()),
            "family_count": len(families), "counts": dict(counts),
            "families": list(families.values())}
