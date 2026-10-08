@@ -149,7 +149,8 @@ python3 tools/muon-compile.py tests/stream_copy.mlir \
   --output build/stream_copy.one_core.ll
 ```
 
-The latest model2MLIR frontend capture is in `radiance-mlir`:
+The model2MLIR frontend capture pinned to revision
+`7915e23475c6db446a3c404847b11e8bc72c8a27` is in `radiance-mlir`:
 `tests/capture_model2mlir_stream.py` checks all four one-million-element
 PyTorch STREAM outputs against the handwritten source equations, and
 `tests/capture_model2mlir_gemm.py` checks all 4,096 BF16 SIMT GEMM output

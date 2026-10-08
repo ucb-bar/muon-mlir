@@ -1,3 +1,6 @@
 /build/
 /toolchain-build/
 __pycache__/
+.pytest_cache/
+*.pyc
+/out/
