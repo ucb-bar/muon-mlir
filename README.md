@@ -1,5 +1,7 @@
 # Muon MLIR
 
+Licensed under Apache-2.0; see [LICENSE](LICENSE).
+
 Out-of-tree MLIR dialect for Muon SIMT execution. The dialect owns callback
 launch, thread and block IDs, barriers, and memory fences. Ordinary indexed
 loads, stores, loops, arithmetic, and reductions use upstream MLIR dialects.
